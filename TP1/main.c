@@ -1,194 +1,123 @@
-#include <stdio.h>
+// dans le typedef Signe, il y a un champ start et finish. On n'a besoin de stocker que 1 start et 1 finish. Je pense que c'est plus adapte de les stocker a part
+// piste pour avancer sur le projet et bien préparer la suite : Au lieu que tout ça soit appelé depuis le main, ca serait bien de creer une fonction qui retourne un tableau Signe qu'on pourrait facilement acceder depuis le main et ensuite facilement recopier pour les autres fichiers
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
-#define BLOCS_LENGHT 92
+#define MAX_LINE_LENGTH 100
+#define MAX_LINES 200
 
-char** lecture(const char *);
-int preconds(char*);
+// definir string²
+typedef char string[1024];
 
+// definir une signe avec l'enregistrement
+typedef struct
+{
+    char start[200];
+    char action[100];
+    char finish[100];
+    char preconds[100];
+    char add[100];
+    char delete[100];
+} Signe;
 
-typedef struct{
-    char add[5][128];
-    char preconds[5][128];
-    char delete[5][128];
-    char action[5][128];
-    int nb_add;
-    int nb_preconds;
-    int nb_delete;
-    int nb_action;
-} Stockage;
-
-
-/// @brief ici on verifie que les 3 premiers char, peut etre utile de verifier le mot dans son entierete
-/// @param c 
-/// @return 
-int preconds(char*c){
-    if(c == NULL) return 0;
-    if(c[0] != '\0' && c[0] == 'p' && c[1] != '\0' && c[1] == 'r' && c[2] != '\0' && c[2] == 'e') return 1;
-    return 0;
+int parseLine(char source[], string cible[])
+{
+    int i = 0, n = 0; // i: l'indice de source[], n: l'indice de cible[]
+    while (source[i] != ':')
+        i++;   // avancer jusqu'à ':'
+    i++;       // avancer au debut de la premiere chaine
+    int j = i; // marquer le debut de la premiere chaine avec j
+    while (source[i] != '\n')
+    {
+        if (source[i] == ',')
+        {
+            memcpy(&cible[n], &source[j], i - j); // extraire les i-j caracteres a partir de j
+            n++;
+            j = i + 1; // marquer le debut de la chaine suivante avec j
+        }
+        i++;
+    }
+    return n;
 }
 
-int add(char*c){
-    if(c == NULL) return 0;
-    if(c[0] != '\0' && c[0] == 'a' && c[1] != '\0' && c[1] == 'd' && c[2] != '\0' && c[2] == 'd') return 1;
-    return 0;
-}
+int main(void)
+{
+    string start[MAX_LINES];
+    string finish[MAX_LINES];
+    string action[MAX_LINES];
+    char source[MAX_LINE_LENGTH];
+    string preconds[MAX_LINES];
+    string add[MAX_LINES];
+    string delete[MAX_LINES];
+    Signe signes[MAX_LINES];
+    int nbS = 0, nbM = 0;
+    int i;
 
-int delete(char*c){
-    if(c == NULL) return 0;
-    if(c[0] != '\0' && c[0] == 'd' && c[1] != '\0' && c[1] == 'e' && c[2] != '\0' && c[2] == 'l') return 1;
-    return 0;
-}
+    // ouvrir le fichier
+    FILE *monflux = fopen("school.txt", "r");
 
-int action(char*c){
-    if(c == NULL) return 0;
-    if(c[0] != '\0' && c[0] == 'a' && c[1] != '\0' && c[1] == 'c' && c[2] != '\0' && c[2] == 't') return 1;
-    return 0;
-}
+    // tester le fichier s'il existe
+    if (monflux == NULL)
+    {
+        printf("fichier errur: \n");
+        exit(0);
+    }
 
+    // lire start
+    fgets(source, 100, monflux);
+    nbM = parseLine(source, start);
+    for (i = 0; i < nbM; i++)
+        printf("start : %s\n", start[i]);
 
+    // lire finish
+    fgets(source, 100, monflux);
+    nbM = parseLine(source, finish);
+    for (i = 0; i < nbM; i++)
+        printf("finish : %s\n", finish[i]);
 
-int main(){
+    // lire les signes
+    while (fgets(source, MAX_LINE_LENGTH, monflux) != NULL)
+    {
+        printf("\n");
 
-
-    // ============= enregistrer dans un double tableau les lignes du fichier
-    char**blocs = lecture("blocs.txt");
-
-    Stockage st_blocs[40];
-
-
-    int bloc_actuel = 0;
-    char tmp;
-
-    for(int i = 0 ; i < BLOCS_LENGHT ; ++i){
-        if(preconds(blocs[i])){
-            printf("la ligne %d commence par preconds\n", i);
-            int char_actuel_doc = 9;
-            tmp = '\0';
-            while(tmp != '\n'){
-                int char_actuel_preconds = 0;
-                while((tmp = blocs[i][char_actuel_doc]) != ','){
-                    st_blocs[bloc_actuel].preconds[  st_blocs[bloc_actuel].nb_preconds ][char_actuel_preconds] = tmp;
-                    char_actuel_doc++;
-                    char_actuel_preconds++;
-                    printf("tmp = %c  ligne de doc = %d  colone du doc = %d  nb_preconds enregistre = %d\n", tmp, i, char_actuel_doc, st_blocs[bloc_actuel].nb_preconds);
-                }
-                st_blocs[bloc_actuel].preconds[  st_blocs[bloc_actuel].nb_preconds ][char_actuel_preconds] = '\0';
-                printf("tmp = %c  ligne de doc = %d  colone du doc = %d  nb_preconds enregistre = %d\n", st_blocs[bloc_actuel].preconds[  st_blocs[bloc_actuel].nb_preconds ][char_actuel_preconds], i, char_actuel_doc, st_blocs[bloc_actuel].nb_preconds);
-                printf("\n");
-                st_blocs[bloc_actuel].nb_preconds++;
-                char_actuel_doc++;
-                tmp = blocs[i][char_actuel_doc];
-            }
-            bloc_actuel++;
+        // lire les action
+        nbM = parseLine(source, action);
+        for (int i = 0; i < nbM; i++)
+        {
+            strcpy(signes[nbS].action, action[i]);
+            printf("action : %s\n", signes[nbS].action);
         }
 
+        // lire les préconditions
+        nbM = parseLine(source, preconds);
+        for (int i = 0; i < nbM; i++)
+        {
+            strcpy(signes[nbS].preconds, preconds[i]);
+            printf("preconds : %s\n", signes[nbS].preconds);
+        }
 
-        else if(add(blocs[i])){
-            printf("la ligne %d commence par add\n", i);
-            int char_actuel_doc = 9;
-            tmp = '\0';
-            while(tmp != '\n'){
-                int char_actuel_add = 0;
-                while((tmp = blocs[i][char_actuel_doc]) != ','){
-                    st_blocs[bloc_actuel].add[  st_blocs[bloc_actuel].nb_add ][char_actuel_add] = tmp;
-                    char_actuel_doc++;
-                    char_actuel_add++;
-                    printf("tmp = %c  ligne de doc = %d  colone du doc = %d  nb_add enregistre = %d\n", tmp, i, char_actuel_doc, st_blocs[bloc_actuel].nb_add);
-                }
-                st_blocs[bloc_actuel].add[  st_blocs[bloc_actuel].nb_add ][char_actuel_add] = '\0';
-                printf("tmp = %c  ligne de doc = %d  colone du doc = %d  nb_add enregistre = %d\n", st_blocs[bloc_actuel].add[  st_blocs[bloc_actuel].nb_add ][char_actuel_add], i, char_actuel_doc, st_blocs[bloc_actuel].nb_add);
-                printf("\n");
-                st_blocs[bloc_actuel].nb_add++;
-                char_actuel_doc++;
-                tmp = blocs[i][char_actuel_doc];
-            }
-            bloc_actuel++;
-        }   
-    
+        // lire les ajouts
+        fgets(source, MAX_LINE_LENGTH, monflux); // passer la ligne ""
+        nbM = parseLine(source, add);
+        for (int i = 0; i < nbM; i++)
+        {
+            strcpy(signes[nbS].add, add[i]);
+            printf("add : %s\n", signes[nbS].add);
+        }
 
-    printf("la ligne %d commence par add\n", i);
-            int char_actuel_doc = 9;
-            tmp = '\0';
-            while(tmp != '\n'){
-                int char_actuel_add = 0;
-                while((tmp = blocs[i][char_actuel_doc]) != ','){
-                    st_blocs[bloc_actuel].add[  st_blocs[bloc_actuel].nb_add ][char_actuel_add] = tmp;
-                    char_actuel_doc++;
-                    char_actuel_add++;
-                    printf("tmp = %c  ligne de doc = %d  colone du doc = %d  nb_add enregistre = %d\n", tmp, i, char_actuel_doc, st_blocs[bloc_actuel].nb_add);
-                }
-                st_blocs[bloc_actuel].add[  st_blocs[bloc_actuel].nb_add ][char_actuel_add] = '\0';
-                printf("tmp = %c  ligne de doc = %d  colone du doc = %d  nb_add enregistre = %d\n", st_blocs[bloc_actuel].add[  st_blocs[bloc_actuel].nb_add ][char_actuel_add], i, char_actuel_doc, st_blocs[bloc_actuel].nb_add);
-                printf("\n");
-                st_blocs[bloc_actuel].nb_add++;
-                char_actuel_doc++;
-                tmp = blocs[i][char_actuel_doc];
-            }
-            bloc_actuel++;
-        }   
-        
+        // lire les suppressions
+        fgets(source, MAX_LINE_LENGTH, monflux); // passer la ligne "**"
+        nbM = parseLine(source, delete);
+        for (int i = 0; i < nbM; i++)
+        {
+            strcpy(signes[nbS].delete, delete[i]);
+            printf("delete : %s\n", signes[nbS].delete);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // for(int i = 0 ; i < BLOCS_LENGHT ; ++i)
-    //     if(blocs[i][0] == '*')          // supprimer les lignes avec * et retour a la ligne
-    //         blocs[i][0] = '\0';
-
-
-    // for(int i = 0 ; i < BLOCS_LENGHT ; ++i)
-    //     printf("%s", blocs[i]);
-
-    //============= resoudre les problemes de blocs
-
-
-
-    // =========== liberer le double tableau
-    for (int i = 0; i < BLOCS_LENGHT; i++) free(blocs[i]);
-    free(blocs);
-
-    return 0;
-}
-
-
-
-char** lecture(const char* filename) {
-    char buffer[256];
-    char** lines = NULL;
-    FILE* reader = fopen(filename, "r");
-
-    if (reader == NULL) {
-        printf("erreur d'ouverture du fichier '%s'\n", filename);
-        return NULL;
-    }
-    lines = malloc(BLOCS_LENGHT*sizeof(char*));
-    int line_count = 0;
-    while (fgets(buffer, sizeof(buffer), reader) != NULL) {
-        char* line = malloc(strlen(buffer) + 1);
-        strcpy(line, buffer);
-        lines[line_count] = line;
-        line_count++;
+        nbS++;
     }
 
-    // fermer le ficher
-    fclose(reader);
-
-    return lines;
+    // fermer le fichier
+    fclose(monflux);
 }
