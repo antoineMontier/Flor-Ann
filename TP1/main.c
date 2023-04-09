@@ -57,17 +57,17 @@ int parseLine(char source[], string cible[])
 int main(void)
 {
 
-    /*// ===== test des fonctions supprimer et rechercher =====
+    // ===== test des fonctions supprimer et rechercher =====
 
-    char test1[MAX_LINES];
+    char test1[MAX_LINE_LENGTH];
     sprintf(test1,"%s", "have money,have phone book,car needs battery,son at home");
-    char delete[MAX_LINES];
-    sprintf(delete, "%s", "have money");
+    char delete[MAX_LINE_LENGTH];
+    sprintf(delete, "%s", "battery,son");
     supprimer(test1, delete);
     printf("main: %s\n", test1);
 
-    // ====================================================*/
-
+    // ====================================================
+    /*
     char** fichier;
     fichier = lecture("school.txt");
 
@@ -126,7 +126,7 @@ int main(void)
 
 
 
-    }
+    }*/
 
 
 
@@ -276,7 +276,7 @@ void supprimer(char* etat, char* a_supprimer){
     }
 
     // il faut supprimer entre debut_de_suppression et i dans etat
-    char nouveau_etat[MAX_LINES];
+    char nouveau_etat[MAX_LINE_LENGTH];
     for(int k = 0; k < debut_de_suppression; k++){
         nouveau_etat[k] = etat[k];
         nouveau_etat[k+1] = '\0';
@@ -284,11 +284,12 @@ void supprimer(char* etat, char* a_supprimer){
     
     printf("step 1 : %s\n", nouveau_etat);
 
-    for(int k = debut_de_suppression ; k < MAX_LINES ;++k)
+    for(int k = debut_de_suppression ; k < MAX_LINE_LENGTH ;++k)
         nouveau_etat[k] = etat[k + i - debut_de_suppression]; 
     printf("step 2 : %s\n", nouveau_etat);
     strcpy(etat, nouveau_etat);
-}   
+}  
+
 
 
 int rechercher(char*etat, char* a_rechercher){

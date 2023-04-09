@@ -1,0 +1,102 @@
+n
+
+
+int a, b;                       // int a, b; ||| O(1)
+
+for(int i = 0 ; i < n : i++){    //  int i = 0 ||| O(1)         i < n ||| O(n)          i++ ||| O(n-1)
+    a = b+1;                    /// a = b+1; ||| O(1)   on le répète n fois
+}
+
+
+O(1) + O(1) + O(1) + O(n) + O(n-1) + O(1) * n
+O(1 + 1 + 1 + n + n - 1 + 1* n)
+O(2 + 3n)
+O(3n)
+O(n)
+
+//=============================================
+for(int i =0 ; i < n ; i++)                 // O(1)
+    for(int j = 0 ; j < n ; j++)            // O(n)
+        printf("%d", i+j);                  // O(1) on le fait n fois pour chaque itération de la boucle principale, la boucle principale fait n tours
+                                            // on le fait n*n fois
+
+O(1) + O(n) + O(1)*n²
+O(1 + n + n²)
+O(n²)
+
+
+
+
+2^n cases 
+
+on imaginer que n = 7 
+donc 64 cases 
+on imagine le pire cas : 
+
+on coupe le tableau en 2 : 
+128
+64 | 64
+32 | 32
+16 | 16
+8 | 8
+4 | 4
+2 | 2
+1 | 1
+
+7+1 répétitions de la fonction récursive si n = 7
+n + 1                                       n = n
+
+la fonction elle même est de complexité O(1)
+
+on l'appelle n+1 fois pour un tableau de taille k = 2^n
+
+n = log_2(k)
+
+
+log_2(k) + 1 répétitions de la fonction récursive 
+
+donc O((log_2(k) + 1) * 1)
+donc O(log_2(k))
+donc O(log(k))
+
+
+abcder/////erezer
+
+for(int i = 0  ; i < n ; i++){
+    if(c[i] == '/' && c[i+1] == '/')
+        c[i+1] = '';
+}
+nvc
+int j;
+for(int i = 0 ; i < n ; i++){
+    if(c[i] != ''){
+        nvc[j] = c[i];
+        j++
+    }
+}
+
+
+
+
+
+
+
+
+
+fonction sans retour mystere(caractere[] chaine)
+entier x,y;
+début
+    x ← 0;
+    tantque (x < chaine.longueur-1) faire
+        si (chaine[x] = '/' ET chaine[x+1] = '/') alors
+            pour (y allant de x+1 à chaine.longueur-2 pas de 1) faire
+                chaine[y] ← chaine[y+1];
+            finpour
+            chaine[chaine.longueur-1] ← ' ';
+        sinon
+            x ← x + 1;
+        finsi
+    fintantque
+fin
+
+
