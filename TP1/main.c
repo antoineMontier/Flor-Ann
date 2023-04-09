@@ -17,9 +17,7 @@ typedef char string[1024];
 // definir une signe avec l'enregistrement
 typedef struct
 {
-    char start[200]; // -- a voir si c'est utile ?
     char action[100];
-    char finish[100]; // -- a voir si c'est utile ?
     char preconds[100];
     char add[100];
     char delete[100];
@@ -53,22 +51,24 @@ int parseLine(char source[], string cible[])
 int main(void)
 {
 
+    /*// ===== test des fonctions supprimer et rechercher =====
+
     char test1[MAX_LINES];
     sprintf(test1,"%s", "have money,have phone book,car needs battery,son at home");
     char delete[MAX_LINES];
     sprintf(delete, "%s", "have phone book");
-
+    
     printf("main: %d\n", rechercher(test1, delete));
 
 
+    // ====================================================*/
 
 
 
 
 
-    /*
-    string start[MAX_LINES];
-    string finish[MAX_LINES];
+    char start[MAX_LINES];
+    char finish[MAX_LINES];
     string action[MAX_LINES];
     char source[MAX_LINE_LENGTH];
     string preconds[MAX_LINES];
@@ -82,8 +82,7 @@ int main(void)
     FILE *monflux = fopen("school.txt", "r");
 
     // tester le fichier s'il existe
-    if (monflux == NULL)
-    {
+    if (monflux == NULL){
         printf("fichier errur: \n");
         exit(0);
     }
@@ -92,13 +91,13 @@ int main(void)
     fgets(source, 100, monflux);
     nbM = parseLine(source, start);
     for (i = 0; i < nbM; i++)
-        printf("start : %s\n", start[i]);
+        printf("start : %s\n", start);
 
     // lire finish
     fgets(source, 100, monflux);
     nbM = parseLine(source, finish);
     for (i = 0; i < nbM; i++)
-        printf("finish : %s\n", finish[i]);
+        printf("finish : %s\n", finish);
 
     // lire les signes
     while (fgets(source, MAX_LINE_LENGTH, monflux) != NULL)
@@ -147,7 +146,7 @@ int main(void)
 
 
     resoudre_school(signes, start, finish);
-    */
+    
     return 0;
 }
 
