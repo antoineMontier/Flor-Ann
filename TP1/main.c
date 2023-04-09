@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #define MAX_LINE_LENGTH 100
-#define MAX_LINES 200
+#define MAX_LINES 32
 #define A 123
 #define B 124
 #define C 125
@@ -26,6 +26,12 @@ typedef struct
 char* resoudre_school(Signe* s, char* start, char* end);
 void supprimer(char* etat, char* a_supprimer);
 int rechercher(char*etat, char* a_rechercher);
+char** lecture(const char* filename);
+int preconds(char*c);
+int add(char*c);
+int action(char*c);
+int delete(char*c);
+
 
 int parseLine(char source[], string cible[])
 {
@@ -56,17 +62,81 @@ int main(void)
     char test1[MAX_LINES];
     sprintf(test1,"%s", "have money,have phone book,car needs battery,son at home");
     char delete[MAX_LINES];
-    sprintf(delete, "%s", "have phone book");
-    
-    printf("main: %d\n", rechercher(test1, delete));
-
+    sprintf(delete, "%s", "have money");
+    supprimer(test1, delete);
+    printf("main: %s\n", test1);
 
     // ====================================================*/
 
+    char** fichier;
+    fichier = lecture("school.txt");
+
+
+    // for(int i = 0 ; i < MAX_LINES ; ++i)
+    //     printf("%s\n", fichier[i]);
+
+    // ================= ajout du start ===================
+    char start[MAX_LINE_LENGTH];
+
+    strcpy(start, fichier[0]);
+    //supprimer(start, "start:");
+    printf("!!!! %s\n", start);
+
+    // =============== ajout du finish ================
+    char finish[MAX_LINE_LENGTH];
+    strcpy(start, fichier[1]);
+    //supprimer(finish, "finish:");
+    printf("!!!! %s\n", finish);
+
+
+    // ============ ajouter les actions ============
+    Signe signes[MAX_LINES/4];
+    int indice_action = 0;
+    for(int i = 2 ; i < MAX_LINE_LENGTH ; i++){
+        
+        if(action(fichier[i]))
+            strcpy(signes[indice_action].action, fichier[i]);
+        else if(add(fichier[i]))
+            strcpy(signes[indice_action].add, fichier[i]);
+        else if (preconds(fichier[i]))
+            strcpy(signes[indice_action].preconds, fichier[i]);
+        else if(delete(fichier[i]))
+            strcpy(signes[indice_action].delete, fichier[i]);
+        else
+            indice_action++;
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+    /*
     char start[MAX_LINES];
     char finish[MAX_LINES];
     string action[MAX_LINES];
@@ -146,7 +216,7 @@ int main(void)
 
 
     resoudre_school(signes, start, finish);
-    
+    */
     return 0;
 }
 
@@ -237,4 +307,50 @@ int rechercher(char*etat, char* a_rechercher){
             return 1;
     }
     return 0;
+}
+
+int preconds(char*c){
+    if(c == NULL) return 0;
+    if(c[0] != '\0' && c[0] == 'p' && c[1] != '\0' && c[1] == 'r' && c[2] != '\0' && c[2] == 'e') return 1;
+    return 0;
+}
+
+int add(char*c){
+    if(c == NULL) return 0;
+    if(c[0] != '\0' && c[0] == 'a' && c[1] != '\0' && c[1] == 'd' && c[2] != '\0' && c[2] == 'd') return 1;
+    return 0;
+}
+int action(char*c){
+    if(c == NULL) return 0;
+    if(c[0] != '\0' && c[0] == 'a' && c[1] != '\0' && c[1] == 'c' && c[2] != '\0' && c[2] == 't') return 1;
+    return 0;
+}
+int delete(char*c){
+    if(c == NULL) return 0;
+    if(c[0] != '\0' && c[0] == 'd' && c[1] != '\0' && c[1] == 'e' && c[2] != '\0' && c[2] == 'l') return 1;
+    return 0;
+}
+
+char** lecture(const char* filename) {
+    char buffer[MAX_LINE_LENGTH];
+    char** lines = NULL;
+    FILE* reader = fopen(filename, "r");
+
+    if (reader == NULL) {
+        printf("erreur d'ouverture du fichier '%s'\n", filename);
+        return NULL;
+    }
+    lines = malloc(MAX_LINES*sizeof(char*));
+    int line_count = 0;
+    while (fgets(buffer, sizeof(buffer), reader) != NULL) {
+        char* line = malloc(strlen(buffer) + 1);
+        strcpy(line, buffer);
+        lines[line_count] = line;
+        line_count++;
+    }
+
+    // fermer le ficher
+    fclose(reader);
+
+    return lines;
 }
