@@ -100,3 +100,125 @@ début
 fin
 
 
+
+
+
+for(int i = 0 ; i < n  ; i++)
+
+O(n)
+
+
+//// fusion de 2 tableaux
+
+Paramètre de complexité : n1 et n2
+
+la fonction a une complexité de O(1)*n1 + O(1)*n2 = O(1(n1 + n2)) = O(n1 + n2)
+
+t1 : tableau ; taille n1
+t2 : tableau ; taille n2
+
+
+t3 : nouveau tableau
+
+for(int i = 0 ; i < n1 ; i++){ n1 fois
+    t3[i] = t1[i]; // O(1) 
+}
+
+for(int i = 0 ; i < n2 ; i++){ n2 fois
+    t3[i + n1] = t2[i];  // O(1)
+}
+
+        taille t3 = n3 = n1 + n2
+
+
+1234
+5678
+
+12345678
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////// fibonnaci
+
+Paramètre de complexité : n
+
+pour calculer fibo de n, on appelle 2^n - 1 fois la fonction
+
+la complexité de la fonction, sans compter l'appel recursif est de O(1)
+
+on l'appelle 2^n - 1 fois
+
+donc la complexité sera au final O(1*(2^n-1))
+                                O(2^n - 1)
+                                O(2^n)
+
+int fibo(n){
+    if(n < 1) return n; // O(1)
+    return fibo(n-1) + fibo(n-2); // O(1)
+}
+
+
+int fibo(n){
+    if(n < 1) return n; // O(1)
+    int a = 1 , b = 0, c = 0; // O(1)
+    for(int i = 0 ; i < n ; i++){   // n fois
+        b = a + c;  // O(1)
+        c = a + b;  // O(1)
+        a = b;      // O(1)
+    }
+    return a; // O(1)
+}
+
+complexite totale : O(n)
+
+
+/// factorielle
+
+param de complexité : n
+
+on appelle n-1 fois la fonction
+la complexite interieure 
+
+fact(5) = 5 * fact(4)
+              4 * fact(3)
+                   3 * fact(2)
+                       2 * fact(1)
+                            1
+
+= 5 * 4 * 3 * 2 * 1 = 120
+
+complexité totale : O(n)
+
+int factorielle(int n){
+    if(n < 1) return 1;      // O(1)
+    return n * factorielle(n - 1);  // O(1)
+}
+
+
+
+n! > e^n > 2^n > n³ >  n² > n*log(n) > n > log(n) > O(1)
+
+
+
+100² = 10000
+2^100 = 1,2676506×10³⁰
+
+
+
+50! = 3,04140932×10^64
+e^50 = 5,184705529×10^21
