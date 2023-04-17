@@ -1,27 +1,46 @@
-// dans le typedef Signe, il y a un champ start et finish. On n'a besoin de stocker que 1 start et 1 finish. Je pense que c'est plus adapte de les stocker a part
-// piste pour avancer sur le projet et bien préparer la suite : Au lieu que tout ça soit appelé depuis le main, ca serait bien de creer une fonction qui retourne un tableau Signe qu'on pourrait facilement acceder depuis le main et ensuite facilement recopier pour les autres fichiers
+/*
+17/04 : 
+on a un tableau de 'signes'. pour chaque signe, il y a 4 'Cond' : add, delete, preconds, action : pour chaque 'Cond' il ya un type (ADD, DELETE, ACTION, PRECOND)
+il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le cond, limité par NB_MAX_CONDS. il y a aussi un tableau de chaine de char, une ligne de tableau par propositions (qui sont séparées par des virgules dans le fichier txt)
+*/
+
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
 #define MAX_LINE_LENGTH 100
 #define MAX_LINES 32
+#define NB_MAX_CONDS 5
 #define A 123
 #define B 124
 #define C 125
 #define VIDE 126
 
+#define ACTION (-1024)
+#define PRECOND (-1025)
+#define ADD (-1026)
+#define DELETE (-1027)
+
 // definir string²
 typedef char string[1024];
+
+typedef struct{
+    int nb_cond;
+    char cond[NB_MAX_CONDS][MAX_LINE_LENGTH];
+    int type; // ACTION, PRECOND, ADD ou DELETE
+} Cond;
 
 // definir une signe avec l'enregistrement
 typedef struct
 {
-    char action[100];
-    char preconds[100];
-    char add[100];
-    char delete[100];
+    Cond action;
+    Cond preconds;
+    Cond add;
+    Cond delete;
 } Signe;
+
+
 
 char* resoudre_school(Signe* s, char* start, char* end);
 void supprimer(char* etat, char* a_supprimer);
@@ -52,6 +71,67 @@ int parseLine(char source[], string cible[])
     }
     return n;
 }
+/*
+Objectif de fonction : à partir des ':' et entre chaque ',' mettre la chaine de char en question dans un tableau : 
+preconds:car needs battery,shop knows problem,shop has money,
+*/
+
+
+void parse_cond(char* chaine, Cond *c){
+    c->nb_cond = 0;
+    if(chaine == NULL || chaine[0]== '\0')return;
+    int indice_case_courante = 0;
+    int indice_resultat = 0;
+    int indice_de_copie_resultat = 0;
+    // avancer jusqu'aux 2 points
+    // printf("traitement de la chaine : %s\n", chaine);
+    if(add(chaine)) c->type = ADD;
+    else if(action(chaine)) c->type = ACTION;
+    else if(delete(chaine)) c->type = DELETE;
+    else if(preconds(chaine)) c->type = PRECOND;
+    else return;
+    while(chaine[indice_case_courante] != ':' && chaine[indice_case_courante] != '\0') indice_case_courante++;
+    indice_case_courante++; // avancer pour ne pas copier les deux points
+    int fini = 0;
+    while(!fini){
+        // copier jusqu'à la ','
+        while(chaine[indice_case_courante] != ',' && chaine[indice_case_courante] != '\0'){
+            c->cond[indice_resultat][indice_de_copie_resultat] = chaine[indice_case_courante];
+            indice_case_courante++;
+            indice_de_copie_resultat++;
+        }
+        if(chaine[indice_case_courante + 1] == '\0' || chaine[indice_case_courante + 1] == '\n' || indice_resultat >= NB_MAX_CONDS) fini = 1;
+        c->cond[indice_resultat][indice_de_copie_resultat] = '\0';
+        indice_resultat++;
+        indice_case_courante++;
+        indice_de_copie_resultat = 0;
+        (c->nb_cond)++;
+    }
+}
+
+/*
+Objectif de fonction : donner un char** correspondant au fichier
+*/
+
+void to_signes(char**fichier, Signe s[MAX_LINES/4]){
+    int indice_signe = 0;
+    for(int i = 3 ; i < MAX_LINES ; i++){ // on lit a partir de la 3e ligne pour sauter les starts, finish et *** du début
+        if(fichier[i][0] != '*'){
+            // printf("indice signe = %d\nligne :%s\n", indice_signe, fichier[i]);
+            Cond co;
+            parse_cond(fichier[i], &co);
+            // printf("type %d\n", co.type);
+            if(co.type == ADD)
+                parse_cond(fichier[i], &s[indice_signe].add);
+            else if(co.type == DELETE)
+                parse_cond(fichier[i], &s[indice_signe].delete);
+            else if(co.type == PRECOND)
+                parse_cond(fichier[i], &s[indice_signe].preconds);
+            else if(co.type == ACTION)
+                parse_cond(fichier[i], &s[indice_signe].action);
+        }else indice_signe++;
+    }
+}
 
 
 int main(void)
@@ -59,15 +139,14 @@ int main(void)
 
     // ===== test des fonctions supprimer et rechercher =====
 
-    char test1[MAX_LINE_LENGTH];
+    /*char test1[MAX_LINE_LENGTH];
     sprintf(test1,"%s", "have money,have phone book,car needs battery,son at home");
-    char delete[MAX_LINE_LENGTH];
-    sprintf(delete, "%s", "battery,son");
-    supprimer(test1, delete);
-    printf("main: %s\n", test1);
+
+    supprimer(test1, "have");
+    printf("main: %s\n", test1);*/
 
     // ====================================================
-    /*
+    
     char** fichier;
     fichier = lecture("school.txt");
 
@@ -80,19 +159,54 @@ int main(void)
 
     strcpy(start, fichier[0]);
     //supprimer(start, "start:");
-    printf("!!!! %s\n", start);
+    printf("start lu :  %s\n", start);
 
     // =============== ajout du finish ================
     char finish[MAX_LINE_LENGTH];
-    strcpy(start, fichier[1]);
+    strcpy(finish, fichier[1]);
     //supprimer(finish, "finish:");
-    printf("!!!! %s\n", finish);
+    printf("finish lu : %s\n", finish);
+
+
+    Signe test[MAX_LINES/4];
+    to_signes(fichier, test);
+
+    for(int i = 0 ; i < 5 ; i++){
+        printf("=============== SIGNE i = %d\n", i);
+        for(int j = 0 ; j  < test[i].add.nb_cond ; j++)
+            printf("ADD : %s\n", test[i].add.cond[j]);
+        for(int j = 0 ; j  < test[i].preconds.nb_cond ; j++)
+            printf("PRECOND : %s\n", test[i].preconds.cond[j]);
+        for(int j = 0 ; j  < test[i].delete.nb_cond ; j++)
+            //if()
+            printf("DELETE : %d\n", test[i].delete.cond[j][0]);
+        for(int j = 0 ; j  < test[i].action.nb_cond ; j++)
+            printf("ACTION : %s\n", test[i].action.cond[j]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // ============ ajouter les actions ============
-    Signe signes[MAX_LINES/4];
+    /*Signe signes[MAX_LINES/4];
     int indice_action = 0;
-    for(int i = 2 ; i < MAX_LINE_LENGTH ; i++){
+    for(int i = 2 ; i < MAX_LINES ; i++){
         
         if(action(fichier[i]))
             strcpy(signes[indice_action].action, fichier[i]);
@@ -104,33 +218,12 @@ int main(void)
             strcpy(signes[indice_action].delete, fichier[i]);
         else
             indice_action++;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        printf("%s\n", fichier[i]);
     }*/
 
 
 
-
+    // resoudre_school(signes, start, finish);
 
 
 
@@ -228,11 +321,13 @@ appliquer la règle sur les faits courants (ajout des add, suppression des delet
 fintantque
 */
 
+
+/*
 char* resoudre_school(Signe* s, char* start, char* end){
 
     // 1ere etape, placer A B C et (VIDE) de la maniere specifiee par le start : 
     printf("=============\n%s\n%s\n", start, end);
-    printf("============ %s\n", s[7].preconds);
+    printf("=============\n");
     int finish = 0;
     char etat[256];
     strcpy(etat, start);
@@ -257,7 +352,7 @@ char* resoudre_school(Signe* s, char* start, char* end){
         if(strcmp(etat, end) == 0)
             finish = 1;
     }
-}
+}*/
 
 void supprimer(char* etat, char* a_supprimer){
     if(a_supprimer[0] == '\0') return; // -- verifier la condition d'arret, peut etre tester [' ', '\0'] ?
@@ -282,11 +377,11 @@ void supprimer(char* etat, char* a_supprimer){
         nouveau_etat[k+1] = '\0';
     }
     
-    printf("step 1 : %s\n", nouveau_etat);
+    // printf("step 1 : %s\n", nouveau_etat);
 
     for(int k = debut_de_suppression ; k < MAX_LINE_LENGTH ;++k)
         nouveau_etat[k] = etat[k + i - debut_de_suppression]; 
-    printf("step 2 : %s\n", nouveau_etat);
+    // printf("step 2 : %s\n", nouveau_etat);
     strcpy(etat, nouveau_etat);
 }  
 
