@@ -11,7 +11,7 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 
 #define MAX_LINE_LENGTH 100
 #define MAX_LINES 32
-#define NB_MAX_CONDS 5
+#define NB_MAX_CONDS 10
 #define A 123
 #define B 124
 #define C 125
@@ -21,6 +21,8 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #define PRECOND (-1025)
 #define ADD (-1026)
 #define DELETE (-1027)
+#define START (-1028)
+#define FINISH (-1029)
 
 // definir string²
 typedef char string[1024];
@@ -49,32 +51,42 @@ int preconds(char*c);
 int add(char*c);
 int action(char*c);
 int delete(char*c);
+int start(char*c);
+int finish(char*c);
 void to_signes(char**fichier, Signe s[MAX_LINES/5]);
+void resoudre_naive(Signe act[MAX_LINES/5], Cond start, Cond finish);
+void print_signes(Signe *s, int signe_size);
+int proposition_dans_cond(char *s, Cond test);
+int precond_statisfait(Cond precond, Cond etat);
+void supprimer_cond(Cond delete, Cond* etat);
+void ajouter_add(Cond add, Cond *etat);
+void parse_cond(char* chaine, Cond *c);
+void print_cond(Cond d);
 
-int main(void)
-{
+int main(void){
     
     char** fichier;
-    fichier = lecture("school.txt");
+    fichier = lecture("monkey.txt");
 
-    // ================= ajout du start ===================
-    char start[MAX_LINE_LENGTH];
+    Cond start, finish;
+    parse_cond(fichier[0], &start);
+    parse_cond(fichier[1], &finish);
 
-    strcpy(start, fichier[0]);
-    //supprimer(start, "start:");
-    printf("start lu :  %s\n", start);
+    // afficher finish et start
 
-    // =============== ajout du finish ================
-    char finish[MAX_LINE_LENGTH];
-    strcpy(finish, fichier[1]);
-    //supprimer(finish, "finish:");
-    printf("finish lu : %s\n", finish);
-
+    printf("=========== START\n");
+    for(int i = 0 ; i < start.nb_cond ; i++)
+        printf("%s\n", start.cond[i]);
+    printf("=========== FINISH\n");
+    for(int i = 0 ; i < finish.nb_cond ; i++)
+        printf("%s\n", finish.cond[i]);
 
     Signe test[MAX_LINES/5];
     to_signes(fichier, test);
 
-    print_signes(test, MAX_LINES/5);
+    // print_signes(test, MAX_LINES/5);
+
+    resoudre_naive(test, start, finish);
 
 
     return 0;
@@ -130,6 +142,111 @@ void print_signes(Signe *s, int signe_size){
     }
 }
 
+
+
+
+
+int proposition_dans_cond(char *s, Cond test){
+    if(s == NULL) return 0;
+    for(int i = 0 ; i < test.nb_cond ; i++)
+        if(strcmp(s, test.cond[i]) == 0) return 1;
+    return 0;
+}
+
+int precond_statisfait(Cond precond, Cond etat){
+    if(precond.nb_cond  == 0) return 1;
+    if(precond.nb_cond > etat.nb_cond) return 0;
+    // vérifier que chaque condition du precond est contenue dans etat : 
+    for(int i = 0 ; i < precond.nb_cond ; i++)
+        if(!proposition_dans_cond(precond.cond[i], etat)) return 0;
+    return 1;
+}
+
+
+void supprimer_cond(Cond delete, Cond *etat){
+    if(delete.nb_cond == 0) return;
+    int nb_cond = etat->nb_cond;
+    for(int i = 0 ; i < nb_cond ; ++i)
+        if(proposition_dans_cond(etat->cond[i], delete)){
+            // printf("suppression de %s i = %d\n", etat->cond[i], i);
+            etat->cond[i][0] = '\0'; // mette le char '\0' dans chaque case à supprimer
+            etat->nb_cond--;
+        }
+    // retirer les caes vides : 
+    int indice_remplissage = 0;
+    for(int i = 0 ; i < nb_cond ; i++) if(i != indice_remplissage && etat->cond[i][0] != '\0') strcpy(etat->cond[indice_remplissage++], etat->cond[i]);
+    
+        
+    
+}
+
+
+void ajouter_add(Cond add, Cond *etat){
+    for(int i=0; i< add.nb_cond; i++){
+        strcpy(etat->cond[etat->nb_cond], add.cond[i]);
+        etat->nb_cond++;
+    }
+}
+
+void resoudre_naive(Signe act[MAX_LINES/5], Cond start, Cond finish){
+    if(act == NULL ) return;
+    Cond etat;
+    etat.nb_cond = 0;
+    // initialiser 'etat' avec start : 
+    for(int i = 0 ; i < start.nb_cond ; i++) 
+        strcpy(etat.cond[i], start.cond[i]);
+    etat.nb_cond = start.nb_cond;
+
+    printf("\n\naffichage de 'etat' apres son init : \n");
+    for(int i = 0 ; i < etat.nb_cond ; i++)
+        printf("%s\n",etat.cond[i]);
+
+    int fini = 0;
+    while(!fini){
+        printf("================ ETAT : \n");
+        print_cond(etat);
+        printf("================\n");
+        // regarder les preconds de chaque bloc : 
+        for(int bloc_actuel = 0 ; bloc_actuel < MAX_LINES/5 ; ++bloc_actuel){ // boucle infinie est possible
+            // pour chaque bloc, si le precond est satisfait, cest a dire que toutes les propositions du precond sont contenues dans 'etat'
+            if(precond_statisfait(act[bloc_actuel].preconds, etat)){
+                // printf("precond trouve %d\n", bloc_actuel);
+                // le precond est satisfait : on fait les delete 
+                // printf("delete de :\n");
+                // print_cond(act[bloc_actuel].delete);
+                supprimer_cond(act[bloc_actuel].delete, &etat);
+                printf("============= APRES DELETE =================\n");
+                print_cond(etat);
+                // printf("ajout de :\n");
+                // print_cond(act[bloc_actuel].add);
+                printf("================\n================APRES ajout=============\n");
+
+                // puis les add
+                ajouter_add(act[bloc_actuel].add, &etat);
+
+                print_cond(etat);
+                printf("==================\n");
+                bloc_actuel = MAX_LINES/5; // stopper la boucle for
+            }
+        }
+        if(/*finish est contenu etat.cond[i]*/precond_statisfait(finish, etat)) fini = 1;
+    }
+}
+
+void print_cond(Cond d){
+    for(int i=0; i<d.nb_cond; ++i) printf("%s\n", d.cond[i]);
+}
+
+
+
+
+
+
+
+
+
+
+
 /**
 Objectif de fonction : à partir des ':' et entre chaque ',' mettre la chaine de char en question dans un tableau : 
 preconds:car needs battery,shop knows problem,shop has money,
@@ -146,6 +263,8 @@ void parse_cond(char* chaine, Cond *c){
     else if(action(chaine)) c->type = ACTION;
     else if(delete(chaine)) c->type = DELETE;
     else if(preconds(chaine)) c->type = PRECOND;
+    else if(start(chaine)) c->type = START;
+    else if(finish(chaine)) c->type = FINISH;
     else return;
     while(chaine[indice_case_courante] != ':' && chaine[indice_case_courante] != '\0') indice_case_courante++;
     indice_case_courante++; // avancer pour ne pas copier les deux points
@@ -235,6 +354,16 @@ int action(char*c){
 int delete(char*c){
     if(c == NULL) return 0;
     if(c[0] != '\0' && c[0] == 'd' && c[1] != '\0' && c[1] == 'e' && c[2] != '\0' && c[2] == 'l') return 1;
+    return 0;
+}
+int start(char*c){
+    if(c == NULL) return 0;
+    if(c[0] != '\0' && c[0] == 's' && c[1] != '\0' && c[1] == 't' && c[2] != '\0' && c[2] == 'a') return 1;
+    return 0;
+}
+int finish(char*c){
+    if(c == NULL) return 0;
+    if(c[0] != '\0' && c[0] == 'f' && c[1] != '\0' && c[1] == 'i' && c[2] != '\0' && c[2] == 'n') return 1;
     return 0;
 }
 
