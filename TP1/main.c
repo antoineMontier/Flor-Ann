@@ -62,11 +62,13 @@ void supprimer_cond(Cond delete, Cond* etat);
 void ajouter_add(Cond add, Cond *etat);
 void parse_cond(char* chaine, Cond *c);
 void print_cond(Cond d);
+void resoudre_fute(Signe act[MAX_LINES/5], Cond start, Cond finish);
+
 
 int main(void){
     
     char** fichier;
-    fichier = lecture("monkey.txt");
+    fichier = lecture("school.txt");
 
     Cond start, finish;
     parse_cond(fichier[0], &start);
@@ -74,23 +76,116 @@ int main(void){
 
     // afficher finish et start
 
-    printf("=========== START\n");
-    for(int i = 0 ; i < start.nb_cond ; i++)
-        printf("%s\n", start.cond[i]);
-    printf("=========== FINISH\n");
-    for(int i = 0 ; i < finish.nb_cond ; i++)
-        printf("%s\n", finish.cond[i]);
+    // printf("=========== START\n");
+    // for(int i = 0 ; i < start.nb_cond ; i++)
+    //     printf("%s\n", start.cond[i]);
+    // printf("=========== FINISH\n");
+    // for(int i = 0 ; i < finish.nb_cond ; i++)
+    //     printf("%s\n", finish.cond[i]);
 
     Signe test[MAX_LINES/5];
     to_signes(fichier, test);
 
-    // print_signes(test, MAX_LINES/5);
-
-    resoudre_naive(test, start, finish);
+    resoudre_fute(test, start, finish);
 
 
     return 0;
 }
+
+
+void quels_preconds(Signe act[MAX_LINES/5], Cond etat, int tableau_de_verite[MAX_LINES/5]){
+    for(int i=0; i < MAX_LINES/5 ; ++i)
+        if(precond_statisfait(act[i].preconds, etat))
+            tableau_de_verite[i] = 1;
+        else 
+            tableau_de_verite[i] = 0;
+}
+
+
+
+void resoudre_fute(Signe act[MAX_LINES/5], Cond start, Cond finish){
+    int fini = 0;
+    resoudre_fute_rec(act, start, finish, &fini);
+}
+
+void copie_cond(Cond *dest, Cond src){
+    dest->nb_cond = src.nb_cond;
+    dest->type = src.type;
+    for(int i = 0 ; i < src.nb_cond ; i++)
+        strcpy(dest->cond[i], src.cond[i]);
+}
+
+
+void resoudre_fute_rec(Signe act[MAX_LINES/5], Cond etat, Cond finish, int*fini){
+    // affichage : 
+    printf("\n\nMon etat : \n");
+    print_cond(etat);
+    
+    //conditions d'arret : 
+    if(precond_statisfait(finish, etat)){
+        printf("solution trouvée\n");
+        *fini = 1;
+        return;
+    }
+    if(*fini == 1){
+        printf("solution trouvée par une autre rec, je m'arrete\n");
+        return;
+    }
+    // connaitre tous les preconds faisables : 
+    int tab_verite[MAX_LINES/5];
+    quels_preconds(act, etat, tab_verite);
+    // tableau de vérité rempli : 
+
+
+
+    for(int action = 0; action < MAX_LINES/5 ; action++){
+        if(tab_verite[action]){
+            printf("je lance l'action n°%d\n", action);
+            // option1 : on retire le delete et on ajoute le add, on lance la recursivité avec l'etat, puis on retire le add qu'on a ajoute et on remet le delete pour lancer la rec sur la deuxieme solution possi
+            // option2 : creer un nouvel etat pour chaque action, lancer la recursivite avec le nouvel etat auquel on aura retiré les delete et ajoute les add
+            Cond nv_etat;
+            copie_cond(&nv_etat, etat);
+            // suppression des delete dans nv_etat
+            supprimer_cond(act[action].delete, &nv_etat);
+
+            // ajout des add
+            ajouter_add(act[action].add, &nv_etat);
+
+            resoudre_fute_rec(act, nv_etat, finish, fini);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 // initialisation des faits courants, du but et des règles en les chargeant depuis un fichier
