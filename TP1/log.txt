@@ -1,0 +1,470 @@
+
+
+Mon etat : 
+son at home
+have money
+have phone book
+car needs battery
+tab_verite : 
+ 0  0  0  0  1  1 
+act_prises : 
+ 0  0  0  0  0  0 action 0 satisfaite : 0
+je lance l'action look up number
+
+add de
+know phone number
+
+apres add
+son at home
+have money
+have phone book
+car needs battery
+know phone number
+
+
+Mon etat : 
+son at home
+have money
+have phone book
+car needs battery
+know phone number
+tab_verite : 
+ 0  0  0  1  1  1 
+act_prises : 
+ 0  0  0  0  1  0 action 0 satisfaite : 0
+je lance l'action telephone shop
+
+add de
+in communication with shop
+
+apres add
+son at home
+have money
+have phone book
+car needs battery
+know phone number
+in communication with shop
+
+
+Mon etat : 
+son at home
+have money
+have phone book
+car needs battery
+know phone number
+in communication with shop
+tab_verite : 
+ 0  0  1  1  1  1 
+act_prises : 
+ 0  0  0  1  1  0 action 0 satisfaite : 0
+je lance l'action tell shop problem
+
+add de
+shop knows problem
+
+apres add
+son at home
+have money
+have phone book
+car needs battery
+know phone number
+in communication with shop
+shop knows problem
+
+
+Mon etat : 
+son at home
+have money
+have phone book
+car needs battery
+know phone number
+in communication with shop
+shop knows problem
+tab_verite : 
+ 0  0  1  1  1  1 
+act_prises : 
+ 0  0  1  1  1  0 action 0 satisfaite : 0
+je lance l'action give shop money
+suppression de have money i = 1
+
+add de
+shop has money
+
+apres add
+have phone book
+car needs battery
+know phone number
+in communication with shop
+shop knows problem
+in communication with shop
+shop has money
+
+
+Mon etat : 
+have phone book
+car needs battery
+know phone number
+in communication with shop
+shop knows problem
+in communication with shop
+shop has money
+plus de son at home dans etat
+tab_verite : 
+ 0  1  1  1  1  0 
+act_prises : 
+ 0  0  1  1  1  1 action 0 satisfaite : 0
+je lance l'action shop installs battery
+
+add de
+car works
+
+apres add
+have phone book
+car needs battery
+know phone number
+in communication with shop
+shop knows problem
+in communication with shop
+shop has money
+car works
+
+
+Mon etat : 
+have phone book
+car needs battery
+know phone number
+in communication with shop
+shop knows problem
+in communication with shop
+shop has money
+car works
+plus de son at home dans etat
+tab_verite : 
+ 0  1  1  1  1  0 
+act_prises : 
+ 0  1  1  1  1  1 action 0 satisfaite : 0
+je lance l'action give shop money
+suppression de have money i = 1
+
+add de
+shop has money
+
+apres add
+have phone book
+car needs battery
+know phone number
+in communication with shop
+know phone number
+shop has money
+
+
+Mon etat : 
+have phone book
+car needs battery
+know phone number
+in communication with shop
+know phone number
+shop has money
+plus de son at home dans etat
+tab_verite : 
+ 0  0  1  1  1  0 
+act_prises : 
+ 0  0  0  1  1  1 action 0 satisfaite : 0
+je lance l'action tell shop problem
+
+add de
+shop knows problem
+
+apres add
+have phone book
+car needs battery
+know phone number
+in communication with shop
+know phone number
+shop has money
+shop knows problem
+
+
+Mon etat : 
+have phone book
+car needs battery
+know phone number
+in communication with shop
+know phone number
+shop has money
+shop knows problem
+plus de son at home dans etat
+tab_verite : 
+ 0  1  1  1  1  0 
+act_prises : 
+ 0  0  1  1  1  1 action 0 satisfaite : 0
+je lance l'action shop installs battery
+
+add de
+car works
+
+apres add
+have phone book
+car needs battery
+know phone number
+in communication with shop
+know phone number
+shop has money
+shop knows problem
+car works
+
+
+Mon etat : 
+have phone book
+car needs battery
+know phone number
+in communication with shop
+know phone number
+shop has money
+shop knows problem
+car works
+plus de son at home dans etat
+tab_verite : 
+ 0  1  1  1  1  0 
+act_prises : 
+ 0  1  1  1  1  1 action 0 satisfaite : 0
+je lance l'action give shop money
+suppression de have money i = 1
+
+add de
+shop has money
+
+apres add
+have phone book
+car needs battery
+know phone number
+car needs battery
+shop has money
+
+
+Mon etat : 
+have phone book
+car needs battery
+know phone number
+car needs battery
+shop has money
+plus de son at home dans etat
+tab_verite : 
+ 0  0  0  1  1  0 
+act_prises : 
+ 0  0  0  0  1  1 action 0 satisfaite : 0
+je lance l'action telephone shop
+
+add de
+in communication with shop
+
+apres add
+have phone book
+car needs battery
+know phone number
+car needs battery
+shop has money
+in communication with shop
+
+
+Mon etat : 
+have phone book
+car needs battery
+know phone number
+car needs battery
+shop has money
+in communication with shop
+plus de son at home dans etat
+tab_verite : 
+ 0  0  1  1  1  0 
+act_prises : 
+ 0  0  0  1  1  1 action 0 satisfaite : 0
+je lance l'action tell shop problem
+
+add de
+shop knows problem
+
+apres add
+have phone book
+car needs battery
+know phone number
+car needs battery
+shop has money
+in communication with shop
+shop knows problem
+
+
+Mon etat : 
+have phone book
+car needs battery
+know phone number
+car needs battery
+shop has money
+in communication with shop
+shop knows problem
+plus de son at home dans etat
+tab_verite : 
+ 0  1  1  1  1  0 
+act_prises : 
+ 0  0  1  1  1  1 action 0 satisfaite : 0
+je lance l'action shop installs battery
+
+add de
+car works
+
+apres add
+have phone book
+car needs battery
+know phone number
+car needs battery
+shop has money
+in communication with shop
+shop knows problem
+car works
+
+
+Mon etat : 
+have phone book
+car needs battery
+know phone number
+car needs battery
+shop has money
+in communication with shop
+shop knows problem
+car works
+plus de son at home dans etat
+tab_verite : 
+ 0  1  1  1  1  0 
+act_prises : 
+ 0  1  1  1  1  1 action 0 satisfaite : 0
+je lance l'action give shop money
+suppression de have money i = 1
+
+add de
+shop has money
+
+apres add
+have phone book
+car needs battery
+have phone book
+shop has money
+
+
+Mon etat : 
+have phone book
+car needs battery
+have phone book
+shop has money
+plus de son at home dans etat
+tab_verite : 
+ 0  0  0  0  1  0 
+act_prises : 
+ 0  0  0  0  0  1 action 0 satisfaite : 0
+je lance l'action look up number
+
+add de
+know phone number
+
+apres add
+have phone book
+car needs battery
+have phone book
+shop has money
+know phone number
+
+
+Mon etat : 
+have phone book
+car needs battery
+have phone book
+shop has money
+know phone number
+plus de son at home dans etat
+tab_verite : 
+ 0  0  0  1  1  0 
+act_prises : 
+ 0  0  0  0  1  1 action 0 satisfaite : 0
+je lance l'action telephone shop
+
+add de
+in communication with shop
+
+apres add
+have phone book
+car needs battery
+have phone book
+shop has money
+know phone number
+in communication with shop
+
+
+Mon etat : 
+have phone book
+car needs battery
+have phone book
+shop has money
+know phone number
+in communication with shop
+plus de son at home dans etat
+tab_verite : 
+ 0  0  1  1  1  0 
+act_prises : 
+ 0  0  0  1  1  1 action 0 satisfaite : 0
+je lance l'action tell shop problem
+
+add de
+shop knows problem
+
+apres add
+have phone book
+car needs battery
+have phone book
+shop has money
+know phone number
+in communication with shop
+shop knows problem
+
+
+Mon etat : 
+have phone book
+car needs battery
+have phone book
+shop has money
+know phone number
+in communication with shop
+shop knows problem
+plus de son at home dans etat
+tab_verite : 
+ 0  1  1  1  1  0 
+act_prises : 
+ 0  0  1  1  1  1 action 0 satisfaite : 0
+je lance l'action shop installs battery
+
+add de
+car works
+
+apres add
+have phone book
+car needs battery
+have phone book
+shop has money
+know phone number
+in communication with shop
+shop knows problem
+car works
+
+
+Mon etat : 
+have phone book
+car needs battery
+have phone book
+shop has money
+know phone number
+in communication with shop
+shop knows problem
+car works
+plus de son at home dans etat
+tab_verite : 
+ 0  1  1  1  1  0 
+act_prises : 
+ 0  1  1  1  1  1 action 0 satisfaite : 0

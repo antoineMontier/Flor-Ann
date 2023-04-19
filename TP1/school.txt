@@ -5,7 +5,7 @@ action:drive son to school,
 preconds:son at home,car works,
 add:son at school,
 delete:son at home,
-****
+****a
 action:shop installs battery,
 preconds:car needs battery,shop knows problem,shop has money,
 add:car works,

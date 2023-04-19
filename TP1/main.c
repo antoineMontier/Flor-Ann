@@ -11,7 +11,7 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 
 #define MAX_LINE_LENGTH 100
 #define MAX_LINES 32
-#define NB_MAX_CONDS 10
+#define NB_MAX_CONDS 20
 #define A 123
 #define B 124
 #define C 125
@@ -105,21 +105,29 @@ void quels_preconds(Signe act[MAX_LINES/5], Cond etat, int tableau_de_verite[MAX
 
 void resoudre_fute(Signe act[MAX_LINES/5], Cond start, Cond finish){
     int fini = 0;
-    resoudre_fute_rec(act, start, finish, &fini);
+    int action[MAX_LINES/5];
+    for(int i=0; i<MAX_LINES/5 ; ++i) action[i] = 0;
+    resoudre_fute_rec(act, start, finish, &fini,action);
 }
 
 void copie_cond(Cond *dest, Cond src){
     dest->nb_cond = src.nb_cond;
     dest->type = src.type;
-    for(int i = 0 ; i < src.nb_cond ; i++)
+    for(int i = 0 ; i < NB_MAX_CONDS ; i++)
         strcpy(dest->cond[i], src.cond[i]);
 }
 
 
-void resoudre_fute_rec(Signe act[MAX_LINES/5], Cond etat, Cond finish, int*fini){
+void resoudre_fute_rec(Signe act[MAX_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[MAX_LINES/5]){
     // affichage : 
     printf("\n\nMon etat : \n");
     print_cond(etat);
+    Cond son_home;
+    son_home.nb_cond = 1;
+    strcpy(son_home.cond[0], "son at home");
+    if(!precond_statisfait(son_home, etat)){
+        printf("plus de son at home dans etat\n");
+    }
     
     //conditions d'arret : 
     if(precond_statisfait(finish, etat)){
@@ -135,12 +143,19 @@ void resoudre_fute_rec(Signe act[MAX_LINES/5], Cond etat, Cond finish, int*fini)
     int tab_verite[MAX_LINES/5];
     quels_preconds(act, etat, tab_verite);
     // tableau de vérité rempli : 
+    printf("tab_verite : \n");
+    for(int i=0; i<MAX_LINES/5; i++)
+        printf(" %d ", tab_verite[i]);
+    printf("\nact_prises : \n");
+    for(int i=0; i<MAX_LINES/5; i++)
+        printf(" %d ", actions_prises[i]);
+
+    printf("action 0 satisfaite : %d\n", precond_statisfait(act[0].preconds, etat));
 
 
-
-    for(int action = 0; action < MAX_LINES/5 ; action++){
-        if(tab_verite[action]){
-            printf("je lance l'action n°%d\n", action);
+    for(int action = 0; action < MAX_LINES/5 ; ++action){
+        if(tab_verite[action] && actions_prises[action] == 0){
+            printf("je lance l'action %s\n", act[action].action.cond[0]);
             // option1 : on retire le delete et on ajoute le add, on lance la recursivité avec l'etat, puis on retire le add qu'on a ajoute et on remet le delete pour lancer la rec sur la deuxieme solution possi
             // option2 : creer un nouvel etat pour chaque action, lancer la recursivite avec le nouvel etat auquel on aura retiré les delete et ajoute les add
             Cond nv_etat;
@@ -150,8 +165,14 @@ void resoudre_fute_rec(Signe act[MAX_LINES/5], Cond etat, Cond finish, int*fini)
 
             // ajout des add
             ajouter_add(act[action].add, &nv_etat);
-
-            resoudre_fute_rec(act, nv_etat, finish, fini);
+            printf("\nadd de\n");
+            print_cond(act[action].add);
+            printf("\napres add\n");
+            print_cond(nv_etat);
+            int actions[MAX_LINES/5];
+            for(int i=0; i<MAX_LINES/5 ; ++i) actions[i] = actions_prises[i];
+            actions[action] = 1;
+            resoudre_fute_rec(act, nv_etat, finish, fini, actions);
         }
     }
 }
@@ -253,7 +274,10 @@ int precond_statisfait(Cond precond, Cond etat){
     if(precond.nb_cond > etat.nb_cond) return 0;
     // vérifier que chaque condition du precond est contenue dans etat : 
     for(int i = 0 ; i < precond.nb_cond ; i++)
-        if(!proposition_dans_cond(precond.cond[i], etat)) return 0;
+        if(!proposition_dans_cond(precond.cond[i], etat)){
+            // printf("action %s non comprise dans etat\n", precond.cond[i]);
+            return 0;
+        } 
     return 1;
 }
 
@@ -263,7 +287,7 @@ void supprimer_cond(Cond delete, Cond *etat){
     int nb_cond = etat->nb_cond;
     for(int i = 0 ; i < nb_cond ; ++i)
         if(proposition_dans_cond(etat->cond[i], delete)){
-            // printf("suppression de %s i = %d\n", etat->cond[i], i);
+            printf("suppression de %s i = %d\n", etat->cond[i], i);
             etat->cond[i][0] = '\0'; // mette le char '\0' dans chaque case à supprimer
             etat->nb_cond--;
         }
@@ -271,15 +295,15 @@ void supprimer_cond(Cond delete, Cond *etat){
     int indice_remplissage = 0;
     for(int i = 0 ; i < nb_cond ; i++) if(i != indice_remplissage && etat->cond[i][0] != '\0') strcpy(etat->cond[indice_remplissage++], etat->cond[i]);
     
-        
-    
 }
 
 
 void ajouter_add(Cond add, Cond *etat){
     for(int i=0; i< add.nb_cond; i++){
-        strcpy(etat->cond[etat->nb_cond], add.cond[i]);
-        etat->nb_cond++;
+        if(!proposition_dans_cond(add.cond[i], *etat)){
+            strcpy(etat->cond[etat->nb_cond], add.cond[i]);
+            etat->nb_cond++;
+        }
     }
 }
 
