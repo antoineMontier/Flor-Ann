@@ -1,470 +1,1136 @@
 
 
 Mon etat : 
-son at home
-have money
-have phone book
-car needs battery
-tab_verite : 
- 0  0  0  0  1  1 
-act_prises : 
- 0  0  0  0  0  0 action 0 satisfaite : 0
-je lance l'action look up number
-
-add de
-know phone number
-
-apres add
-son at home
-have money
-have phone book
-car needs battery
-know phone number
+space on a
+a on b
+b on c
+c on table
+space on table
 
 
 Mon etat : 
-son at home
-have money
-have phone book
-car needs battery
-know phone number
-tab_verite : 
- 0  0  0  1  1  1 
-act_prises : 
- 0  0  0  0  1  0 action 0 satisfaite : 0
-je lance l'action telephone shop
-
-add de
-in communication with shop
-
-apres add
-son at home
-have money
-have phone book
-car needs battery
-know phone number
-in communication with shop
+space on a
+b on c
+c on table
+space on table
+a on table
+space on b
 
 
 Mon etat : 
-son at home
-have money
-have phone book
-car needs battery
-know phone number
-in communication with shop
-tab_verite : 
- 0  0  1  1  1  1 
-act_prises : 
- 0  0  0  1  1  0 action 0 satisfaite : 0
-je lance l'action tell shop problem
-
-add de
-shop knows problem
-
-apres add
-son at home
-have money
-have phone book
-car needs battery
-know phone number
-in communication with shop
-shop knows problem
+space on a
+b on c
+c on table
+space on table
+a on b
 
 
 Mon etat : 
-son at home
-have money
-have phone book
-car needs battery
-know phone number
-in communication with shop
-shop knows problem
-tab_verite : 
- 0  0  1  1  1  1 
-act_prises : 
- 0  0  1  1  1  0 action 0 satisfaite : 0
-je lance l'action give shop money
-suppression de have money i = 1
-
-add de
-shop has money
-
-apres add
-have phone book
-car needs battery
-know phone number
-in communication with shop
-shop knows problem
-in communication with shop
-shop has money
+c on table
+space on table
+a on table
+space on b
+b on a
+space on c
 
 
 Mon etat : 
-have phone book
-car needs battery
-know phone number
-in communication with shop
-shop knows problem
-in communication with shop
-shop has money
-plus de son at home dans etat
-tab_verite : 
- 0  1  1  1  1  0 
-act_prises : 
- 0  0  1  1  1  1 action 0 satisfaite : 0
-je lance l'action shop installs battery
-
-add de
-car works
-
-apres add
-have phone book
-car needs battery
-know phone number
-in communication with shop
-shop knows problem
-in communication with shop
-shop has money
-car works
+c on table
+space on table
+a on table
+space on b
+b on c
+space on a
 
 
 Mon etat : 
-have phone book
-car needs battery
-know phone number
-in communication with shop
-shop knows problem
-in communication with shop
-shop has money
-car works
-plus de son at home dans etat
-tab_verite : 
- 0  1  1  1  1  0 
-act_prises : 
- 0  1  1  1  1  1 action 0 satisfaite : 0
-je lance l'action give shop money
-suppression de have money i = 1
-
-add de
-shop has money
-
-apres add
-have phone book
-car needs battery
-know phone number
-in communication with shop
-know phone number
-shop has money
+c on table
+space on table
+b on c
+space on a
+a on b
 
 
 Mon etat : 
-have phone book
-car needs battery
-know phone number
-in communication with shop
-know phone number
-shop has money
-plus de son at home dans etat
-tab_verite : 
- 0  0  1  1  1  0 
-act_prises : 
- 0  0  0  1  1  1 action 0 satisfaite : 0
-je lance l'action tell shop problem
-
-add de
-shop knows problem
-
-apres add
-have phone book
-car needs battery
-know phone number
-in communication with shop
-know phone number
-shop has money
-shop knows problem
+c on table
+space on table
+a on table
+space on b
+space on a
+b on table
+space on c
 
 
 Mon etat : 
-have phone book
-car needs battery
-know phone number
-in communication with shop
-know phone number
-shop has money
-shop knows problem
-plus de son at home dans etat
-tab_verite : 
- 0  1  1  1  1  0 
-act_prises : 
- 0  0  1  1  1  1 action 0 satisfaite : 0
-je lance l'action shop installs battery
-
-add de
-car works
-
-apres add
-have phone book
-car needs battery
-know phone number
-in communication with shop
-know phone number
-shop has money
-shop knows problem
-car works
+c on table
+space on table
+space on a
+b on table
+space on c
+a on b
 
 
 Mon etat : 
-have phone book
-car needs battery
-know phone number
-in communication with shop
-know phone number
-shop has money
-shop knows problem
-car works
-plus de son at home dans etat
-tab_verite : 
- 0  1  1  1  1  0 
-act_prises : 
- 0  1  1  1  1  1 action 0 satisfaite : 0
-je lance l'action give shop money
-suppression de have money i = 1
-
-add de
-shop has money
-
-apres add
-have phone book
-car needs battery
-know phone number
-car needs battery
-shop has money
+c on table
+space on table
+space on a
+b on table
+a on c
+space on b
 
 
 Mon etat : 
-have phone book
-car needs battery
-know phone number
-car needs battery
-shop has money
-plus de son at home dans etat
-tab_verite : 
- 0  0  0  1  1  0 
-act_prises : 
- 0  0  0  0  1  1 action 0 satisfaite : 0
-je lance l'action telephone shop
-
-add de
-in communication with shop
-
-apres add
-have phone book
-car needs battery
-know phone number
-car needs battery
-shop has money
-in communication with shop
+c on table
+space on table
+space on a
+b on table
+a on b
+space on c
 
 
 Mon etat : 
-have phone book
-car needs battery
-know phone number
-car needs battery
-shop has money
-in communication with shop
-plus de son at home dans etat
-tab_verite : 
- 0  0  1  1  1  0 
-act_prises : 
- 0  0  0  1  1  1 action 0 satisfaite : 0
-je lance l'action tell shop problem
-
-add de
-shop knows problem
-
-apres add
-have phone book
-car needs battery
-know phone number
-car needs battery
-shop has money
-in communication with shop
-shop knows problem
+space on table
+b on table
+a on b
+space on c
+c on a
 
 
 Mon etat : 
-have phone book
-car needs battery
-know phone number
-car needs battery
-shop has money
-in communication with shop
-shop knows problem
-plus de son at home dans etat
-tab_verite : 
- 0  1  1  1  1  0 
-act_prises : 
- 0  0  1  1  1  1 action 0 satisfaite : 0
-je lance l'action shop installs battery
-
-add de
-car works
-
-apres add
-have phone book
-car needs battery
-know phone number
-car needs battery
-shop has money
-in communication with shop
-shop knows problem
-car works
+space on table
+b on table
+a on b
+space on c
+c on table
+space on a
 
 
 Mon etat : 
-have phone book
-car needs battery
-know phone number
-car needs battery
-shop has money
-in communication with shop
-shop knows problem
-car works
-plus de son at home dans etat
-tab_verite : 
- 0  1  1  1  1  0 
-act_prises : 
- 0  1  1  1  1  1 action 0 satisfaite : 0
-je lance l'action give shop money
-suppression de have money i = 1
-
-add de
-shop has money
-
-apres add
-have phone book
-car needs battery
-have phone book
-shop has money
+c on table
+space on table
+space on a
+b on table
+space on b
+a on table
+space on c
 
 
 Mon etat : 
-have phone book
-car needs battery
-have phone book
-shop has money
-plus de son at home dans etat
-tab_verite : 
- 0  0  0  0  1  0 
-act_prises : 
- 0  0  0  0  0  1 action 0 satisfaite : 0
-je lance l'action look up number
-
-add de
-know phone number
-
-apres add
-have phone book
-car needs battery
-have phone book
-shop has money
-know phone number
+c on table
+space on table
+space on a
+b on table
+space on b
+a on c
 
 
 Mon etat : 
-have phone book
-car needs battery
-have phone book
-shop has money
-know phone number
-plus de son at home dans etat
-tab_verite : 
- 0  0  0  1  1  0 
-act_prises : 
- 0  0  0  0  1  1 action 0 satisfaite : 0
-je lance l'action telephone shop
-
-add de
-in communication with shop
-
-apres add
-have phone book
-car needs battery
-have phone book
-shop has money
-know phone number
-in communication with shop
+c on table
+space on table
+space on a
+b on table
+a on b
+space on c
 
 
 Mon etat : 
-have phone book
-car needs battery
-have phone book
-shop has money
-know phone number
-in communication with shop
-plus de son at home dans etat
-tab_verite : 
- 0  0  1  1  1  0 
-act_prises : 
- 0  0  0  1  1  1 action 0 satisfaite : 0
-je lance l'action tell shop problem
-
-add de
-shop knows problem
-
-apres add
-have phone book
-car needs battery
-have phone book
-shop has money
-know phone number
-in communication with shop
-shop knows problem
+space on table
+b on table
+a on b
+space on c
+c on a
 
 
 Mon etat : 
-have phone book
-car needs battery
-have phone book
-shop has money
-know phone number
-in communication with shop
-shop knows problem
-plus de son at home dans etat
-tab_verite : 
- 0  1  1  1  1  0 
-act_prises : 
- 0  0  1  1  1  1 action 0 satisfaite : 0
-je lance l'action shop installs battery
-
-add de
-car works
-
-apres add
-have phone book
-car needs battery
-have phone book
-shop has money
-know phone number
-in communication with shop
-shop knows problem
-car works
+space on table
+b on table
+a on b
+space on c
+c on table
+space on a
 
 
 Mon etat : 
-have phone book
-car needs battery
-have phone book
-shop has money
-know phone number
-in communication with shop
-shop knows problem
-car works
-plus de son at home dans etat
-tab_verite : 
- 0  1  1  1  1  0 
-act_prises : 
- 0  1  1  1  1  1 action 0 satisfaite : 0
+c on table
+space on table
+space on b
+a on c
+b on a
+
+
+Mon etat : 
+c on table
+space on table
+space on b
+a on c
+b on table
+space on a
+
+
+Mon etat : 
+c on table
+space on table
+b on table
+space on a
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+b on table
+a on b
+space on c
+c on a
+
+
+Mon etat : 
+space on table
+b on table
+a on b
+space on c
+c on table
+space on a
+
+
+Mon etat : 
+c on table
+space on table
+space on b
+a on table
+space on c
+b on a
+
+
+Mon etat : 
+c on table
+space on table
+space on b
+a on table
+space on c
+b on table
+space on a
+
+
+Mon etat : 
+c on table
+space on table
+space on b
+b on table
+space on a
+a on c
+
+
+Mon etat : 
+c on table
+space on table
+b on table
+space on a
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+b on table
+a on b
+space on c
+c on a
+
+
+Mon etat : 
+space on table
+b on table
+a on b
+space on c
+c on table
+space on a
+
+
+Mon etat : 
+c on table
+space on table
+space on b
+a on table
+space on a
+b on c
+
+
+Mon etat : 
+space on table
+space on b
+a on table
+space on c
+b on table
+c on a
+
+
+Mon etat : 
+space on table
+space on b
+a on table
+c on a
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on b
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+c on b
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on a
+space on b
+
+
+Mon etat : 
+space on table
+a on table
+c on a
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on b
+c on table
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+space on b
+c on table
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+c on table
+space on a
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on b
+c on table
+space on a
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on b
+a on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on table
+space on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+space on b
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on a
+c on table
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on table
+space on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+space on b
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on a
+c on table
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on b
+a on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on a
+space on b
+
+
+Mon etat : 
+space on table
+a on table
+c on a
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on b
+c on table
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+space on b
+c on table
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+c on table
+space on a
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on b
+c on table
+space on a
+b on c
+
+
+Mon etat : 
+space on table
+space on b
+a on table
+space on c
+b on table
+c on table
+space on a
+
+
+Mon etat : 
+space on table
+space on b
+b on table
+c on table
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+c on table
+space on a
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+space on b
+a on table
+c on table
+space on a
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on b
+a on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on a
+space on b
+
+
+Mon etat : 
+space on table
+a on table
+c on a
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on b
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+c on b
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on table
+space on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+space on b
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on a
+c on table
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on table
+space on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+space on b
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on a
+c on table
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on b
+a on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on a
+space on b
+
+
+Mon etat : 
+space on table
+a on table
+c on a
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on b
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+c on b
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on table
+space on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+space on b
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+b on table
+a on b
+space on c
+c on a
+
+
+Mon etat : 
+space on table
+b on table
+a on b
+space on c
+c on table
+space on a
+
+
+Mon etat : 
+space on table
+a on table
+space on a
+c on table
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on b
+c on a
+
+
+Mon etat : 
+space on table
+a on table
+space on b
+c on a
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on b
+c on table
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+space on b
+c on table
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+c on table
+space on a
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on b
+c on table
+space on a
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on b
+c on table
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+space on b
+c on table
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+c on table
+space on a
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+b on table
+a on b
+space on c
+c on a
+
+
+Mon etat : 
+space on table
+a on table
+space on b
+c on table
+space on a
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on b
+c on a
+
+
+Mon etat : 
+space on table
+a on table
+space on b
+c on a
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on b
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+c on b
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on table
+space on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+space on b
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on a
+c on table
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on a
+c on table
+space on b
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+space on b
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+space on a
+c on table
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+b on table
+a on b
+space on c
+c on a
+
+
+Mon etat : 
+space on table
+b on table
+a on b
+space on c
+c on table
+space on a
+
+
+Mon etat : 
+space on table
+a on table
+space on a
+c on table
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on b
+c on a
+
+
+Mon etat : 
+space on table
+a on table
+space on b
+c on a
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on b
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+c on b
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+c on a
+space on b
+
+
+Mon etat : 
+space on table
+a on table
+c on a
+space on b
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on b
+c on table
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+space on b
+c on table
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+c on table
+space on a
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on b
+c on table
+space on a
+b on c
+
+
+Mon etat : 
+space on table
+a on table
+space on c
+b on table
+space on b
+c on table
+space on a
+
+
+Mon etat : 
+space on table
+b on table
+space on b
+c on table
+space on a
+a on c
+
+
+Mon etat : 
+space on table
+b on table
+c on table
+space on a
+a on b
+space on c
+
+
+Mon etat : 
+space on table
+a on table
+space on b
+c on table
+space on a
+b on c
+solution trouvée
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete
+solution trouvée par une autre rec, je m'arrete

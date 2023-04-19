@@ -10,7 +10,7 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #include <stdio.h>
 
 #define MAX_LINE_LENGTH 100
-#define MAX_LINES 32
+#define FILE_LINES 92
 #define NB_MAX_CONDS 20
 #define A 123
 #define B 124
@@ -53,8 +53,8 @@ int action(char*c);
 int delete(char*c);
 int start(char*c);
 int finish(char*c);
-void to_signes(char**fichier, Signe s[MAX_LINES/5]);
-void resoudre_naive(Signe act[MAX_LINES/5], Cond start, Cond finish);
+void to_signes(char**fichier, Signe s[FILE_LINES/5]);
+void resoudre_naive(Signe act[FILE_LINES/5], Cond start, Cond finish);
 void print_signes(Signe *s, int signe_size);
 int proposition_dans_cond(char *s, Cond test);
 int precond_statisfait(Cond precond, Cond etat);
@@ -62,13 +62,13 @@ void supprimer_cond(Cond delete, Cond* etat);
 void ajouter_add(Cond add, Cond *etat);
 void parse_cond(char* chaine, Cond *c);
 void print_cond(Cond d);
-void resoudre_fute(Signe act[MAX_LINES/5], Cond start, Cond finish);
+void resoudre_fute(Signe act[FILE_LINES/5], Cond start, Cond finish);
 
 
 int main(void){
     
     char** fichier;
-    fichier = lecture("school.txt");
+    fichier = lecture("blocs.txt");
 
     Cond start, finish;
     parse_cond(fichier[0], &start);
@@ -83,7 +83,7 @@ int main(void){
     // for(int i = 0 ; i < finish.nb_cond ; i++)
     //     printf("%s\n", finish.cond[i]);
 
-    Signe test[MAX_LINES/5];
+    Signe test[FILE_LINES/5];
     to_signes(fichier, test);
 
     resoudre_fute(test, start, finish);
@@ -93,8 +93,8 @@ int main(void){
 }
 
 
-void quels_preconds(Signe act[MAX_LINES/5], Cond etat, int tableau_de_verite[MAX_LINES/5]){
-    for(int i=0; i < MAX_LINES/5 ; ++i)
+void quels_preconds(Signe act[FILE_LINES/5], Cond etat, int tableau_de_verite[FILE_LINES/5]){
+    for(int i=0; i < FILE_LINES/5 ; ++i)
         if(precond_statisfait(act[i].preconds, etat))
             tableau_de_verite[i] = 1;
         else 
@@ -103,10 +103,10 @@ void quels_preconds(Signe act[MAX_LINES/5], Cond etat, int tableau_de_verite[MAX
 
 
 
-void resoudre_fute(Signe act[MAX_LINES/5], Cond start, Cond finish){
+void resoudre_fute(Signe act[FILE_LINES/5], Cond start, Cond finish){
     int fini = 0;
-    int action[MAX_LINES/5];
-    for(int i=0; i<MAX_LINES/5 ; ++i) action[i] = 0;
+    int action[FILE_LINES/5];
+    for(int i=0; i<FILE_LINES/5 ; ++i) action[i] = 0;
     resoudre_fute_rec(act, start, finish, &fini,action);
 }
 
@@ -118,44 +118,33 @@ void copie_cond(Cond *dest, Cond src){
 }
 
 
-void resoudre_fute_rec(Signe act[MAX_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[MAX_LINES/5]){
-    // affichage : 
-    printf("\n\nMon etat : \n");
-    print_cond(etat);
-    Cond son_home;
-    son_home.nb_cond = 1;
-    strcpy(son_home.cond[0], "son at home");
-    if(!precond_statisfait(son_home, etat)){
-        printf("plus de son at home dans etat\n");
-    }
-    
+void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]){
     //conditions d'arret : 
+    
+    if(*fini == 1){
+        printf("solution trouvée par une autre rec, je m'arrete\n");
+        return;
+    }
     if(precond_statisfait(finish, etat)){
         printf("solution trouvée\n");
         *fini = 1;
         return;
     }
-    if(*fini == 1){
-        printf("solution trouvée par une autre rec, je m'arrete\n");
-        return;
-    }
+
+    // affichage : 
+    printf("\n\nMon etat : \n");
+    print_cond(etat);
+
+
     // connaitre tous les preconds faisables : 
-    int tab_verite[MAX_LINES/5];
+    int tab_verite[FILE_LINES/5];
     quels_preconds(act, etat, tab_verite);
     // tableau de vérité rempli : 
-    printf("tab_verite : \n");
-    for(int i=0; i<MAX_LINES/5; i++)
-        printf(" %d ", tab_verite[i]);
-    printf("\nact_prises : \n");
-    for(int i=0; i<MAX_LINES/5; i++)
-        printf(" %d ", actions_prises[i]);
-
-    printf("action 0 satisfaite : %d\n", precond_statisfait(act[0].preconds, etat));
 
 
-    for(int action = 0; action < MAX_LINES/5 ; ++action){
+
+    for(int action = 0; action < FILE_LINES/5 ; ++action){
         if(tab_verite[action] && actions_prises[action] == 0){
-            printf("je lance l'action %s\n", act[action].action.cond[0]);
             // option1 : on retire le delete et on ajoute le add, on lance la recursivité avec l'etat, puis on retire le add qu'on a ajoute et on remet le delete pour lancer la rec sur la deuxieme solution possi
             // option2 : creer un nouvel etat pour chaque action, lancer la recursivite avec le nouvel etat auquel on aura retiré les delete et ajoute les add
             Cond nv_etat;
@@ -165,12 +154,9 @@ void resoudre_fute_rec(Signe act[MAX_LINES/5], Cond etat, Cond finish, int*fini,
 
             // ajout des add
             ajouter_add(act[action].add, &nv_etat);
-            printf("\nadd de\n");
-            print_cond(act[action].add);
-            printf("\napres add\n");
-            print_cond(nv_etat);
-            int actions[MAX_LINES/5];
-            for(int i=0; i<MAX_LINES/5 ; ++i) actions[i] = actions_prises[i];
+
+            int actions[FILE_LINES/5];
+            for(int i=0; i<FILE_LINES/5 ; ++i) actions[i] = actions_prises[i];
             actions[action] = 1;
             resoudre_fute_rec(act, nv_etat, finish, fini, actions);
         }
@@ -221,9 +207,9 @@ fintantque
     /**
     * Objectif de fonction : donner un char** correspondant au fichier
     */
-void to_signes(char**fichier, Signe s[MAX_LINES/5]){
+void to_signes(char**fichier, Signe s[FILE_LINES/5]){
     int indice_signe = 0;
-    for(int i = 3 ; i < MAX_LINES ; i++){ // on lit a partir de la 3e ligne pour sauter les starts, finish et *** du début
+    for(int i = 3 ; i < FILE_LINES ; i++){ // on lit a partir de la 3e ligne pour sauter les starts, finish et *** du début
         if(fichier[i][0] != '*'){
             // printf("indice signe = %d\nligne :%s\n", indice_signe, fichier[i]);
             Cond co;
@@ -284,17 +270,18 @@ int precond_statisfait(Cond precond, Cond etat){
 
 void supprimer_cond(Cond delete, Cond *etat){
     if(delete.nb_cond == 0) return;
-    int nb_cond = etat->nb_cond;
-    for(int i = 0 ; i < nb_cond ; ++i)
-        if(proposition_dans_cond(etat->cond[i], delete)){
-            printf("suppression de %s i = %d\n", etat->cond[i], i);
-            etat->cond[i][0] = '\0'; // mette le char '\0' dans chaque case à supprimer
-            etat->nb_cond--;
-        }
-    // retirer les caes vides : 
+    Cond nv_etat;
+    nv_etat.type = etat->type;
     int indice_remplissage = 0;
-    for(int i = 0 ; i < nb_cond ; i++) if(i != indice_remplissage && etat->cond[i][0] != '\0') strcpy(etat->cond[indice_remplissage++], etat->cond[i]);
-    
+    for(int i = 0 ; i  < etat->nb_cond ; ++i){
+        if(!proposition_dans_cond(etat->cond[i], delete)){
+            strcpy(nv_etat.cond[indice_remplissage], etat->cond[i]);
+            indice_remplissage++;
+        }
+    }
+    nv_etat.nb_cond = indice_remplissage;
+
+    copie_cond(etat, nv_etat);
 }
 
 
@@ -307,7 +294,7 @@ void ajouter_add(Cond add, Cond *etat){
     }
 }
 
-void resoudre_naive(Signe act[MAX_LINES/5], Cond start, Cond finish){
+void resoudre_naive(Signe act[FILE_LINES/5], Cond start, Cond finish){
     if(act == NULL ) return;
     Cond etat;
     etat.nb_cond = 0;
@@ -326,7 +313,7 @@ void resoudre_naive(Signe act[MAX_LINES/5], Cond start, Cond finish){
         print_cond(etat);
         printf("================\n");
         // regarder les preconds de chaque bloc : 
-        for(int bloc_actuel = 0 ; bloc_actuel < MAX_LINES/5 ; ++bloc_actuel){ // boucle infinie est possible
+        for(int bloc_actuel = 0 ; bloc_actuel < FILE_LINES/5 ; ++bloc_actuel){ // boucle infinie est possible
             // pour chaque bloc, si le precond est satisfait, cest a dire que toutes les propositions du precond sont contenues dans 'etat'
             if(precond_statisfait(act[bloc_actuel].preconds, etat)){
                 // printf("precond trouve %d\n", bloc_actuel);
@@ -345,7 +332,7 @@ void resoudre_naive(Signe act[MAX_LINES/5], Cond start, Cond finish){
 
                 print_cond(etat);
                 printf("==================\n");
-                bloc_actuel = MAX_LINES/5; // stopper la boucle for
+                bloc_actuel = FILE_LINES/5; // stopper la boucle for
             }
         }
         if(/*finish est contenu etat.cond[i]*/precond_statisfait(finish, etat)) fini = 1;
@@ -495,7 +482,7 @@ char** lecture(const char* filename) {
         printf("erreur d'ouverture du fichier '%s'\n", filename);
         return NULL;
     }
-    lines = malloc(MAX_LINES*sizeof(char*));
+    lines = malloc(FILE_LINES*sizeof(char*));
     int line_count = 0;
     while (fgets(buffer, sizeof(buffer), reader) != NULL) {
         char* line = malloc(strlen(buffer) + 1);
