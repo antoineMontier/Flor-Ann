@@ -10,7 +10,7 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #include <stdio.h>
 
 #define MAX_LINE_LENGTH 100
-#define FILE_LINES 92
+#define FILE_LINES 82
 #define NB_MAX_CONDS 20
 #define A 123
 #define B 124
@@ -68,7 +68,7 @@ void resoudre_fute(Signe act[FILE_LINES/5], Cond start, Cond finish);
 int main(void){
     
     char** fichier;
-    fichier = lecture("blocs.txt");
+    fichier = lecture("riviere.txt");
 
     Cond start, finish;
     parse_cond(fichier[0], &start);
@@ -140,9 +140,6 @@ void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini
     int tab_verite[FILE_LINES/5];
     quels_preconds(act, etat, tab_verite);
     // tableau de vérité rempli : 
-
-
-
     for(int action = 0; action < FILE_LINES/5 ; ++action){
         if(tab_verite[action] && actions_prises[action] == 0){
             // option1 : on retire le delete et on ajoute le add, on lance la recursivité avec l'etat, puis on retire le add qu'on a ajoute et on remet le delete pour lancer la rec sur la deuxieme solution possi

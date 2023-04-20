@@ -1,0 +1,82 @@
+start:chou A,loup A,chevre A,berger A,
+finish:chou B,loup B,chevre B,berger B,
+****
+action:chou A>B,
+preconds:chou A,berger A,chevre A,loup B,
+add:chou B,berger B,
+delete:chou A,berger A,
+****
+action:chou A>B,
+preconds:chou A,berger A,chevre B,loup A,
+add:chou B,berger B,
+delete:chou A,berger A,
+****
+action:chevre A>B,
+preconds:chevre A,berger A,
+add:chevre B,berger B,
+delete:chevre A,berger A,
+****
+action:chevre A>B,
+preconds:chevre A,berger A,
+add:chevre B,berger B,
+delete:chevre A,berger A,
+****
+action:loup A>B,
+preconds:loup A,berger A,chevre A,chou B,
+add:loup B,berger B,
+delete:loup A,berger A,
+****
+action:loup A>B,
+preconds:loup A,berger A,chevre B,chou A,
+add:loup B,berger B,
+delete:loup A,berger A,
+****
+action:chou B>A,
+preconds:chou B,berger B,chevre A,loup B,
+add:chou A,berger A,
+delete:chou B,berger B,
+****
+action:chou B>A,
+preconds:chou B,berger B,chevre B,loup A,
+add:chou A,berger A,
+delete:chou B,berger B,
+****
+action:chevre B>A,
+preconds:chevre B,berger B,
+add:chevre A,berger A,
+delete:chevre B,berger B,
+****
+action:chevre B>A,
+preconds:chevre B,berger B,
+add:chevre A,berger A,
+delete:chevre B,berger B,
+****
+action:loup B>A,
+preconds:loup B,berger B,chevre A,chou B,
+add:loup A,berger A,
+delete:loup B,berger B,
+****
+action:loup B>A,
+preconds:loup B,berger B,chevre B,chou A,
+add:loup A,berger A,
+delete:loup B,berger B,
+****
+action:berger B>A,
+preconds:berger B,chou B,loup B,chevre A,
+add:berger A,
+delete:berger B,
+****
+action:berger B>A,
+preconds:berger B,chou A,loup A,chevre B,
+add:berger A,
+delete:berger B,
+****
+action:berger A>B,
+preconds:berger A,chou B,loup B,chevre A,
+add:berger B,
+delete:berger A,
+****
+action:berger A>B,
+preconds:berger A,chou A,loup A,chevre B,
+add:berger B,
+delete:berger A,

@@ -1,1128 +1,1556 @@
 
 
 Mon etat : 
-space on a
-a on b
-b on c
-c on table
-space on table
+chou A
+loup A
+chevre A
+berger A
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on a
-b on c
-c on table
-space on table
-a on table
-space on b
+chou A
+loup A
+chevre B
+berger B
+	je lance 3 recursivité
 
 
 Mon etat : 
-space on a
-b on c
-c on table
-space on table
-a on b
+chou A
+loup A
+chevre A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-a on table
-space on b
-b on a
-space on c
+chou A
+loup A
+chevre B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-a on table
-space on b
-b on c
-space on a
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-b on c
-space on a
-a on b
+chou A
+loup A
+chevre B
+berger A
+	je lance 3 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-a on table
-space on b
-space on a
-b on table
-space on c
+loup A
+chevre B
+chou B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on a
-b on table
-space on c
-a on b
+loup A
+chevre B
+chou A
+berger A
+	je lance 2 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on a
-b on table
-a on c
-space on b
+chevre B
+chou A
+loup B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on a
-b on table
-a on b
-space on c
+chou A
+loup B
+chevre A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on a
+loup B
+chevre A
+chou B
+berger B
+	je lance 3 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on table
-space on a
+loup B
+chevre A
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on a
-b on table
-space on b
-a on table
-space on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on a
-b on table
-space on b
-a on c
+chevre A
+chou B
+loup B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on a
-b on table
-a on b
-space on c
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on a
+chevre A
+chou B
+loup B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on table
-space on a
+chevre A
+chou B
+loup B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on b
-a on c
-b on a
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on b
-a on c
-b on table
-space on a
+loup B
+chevre A
+chou B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-b on table
-space on a
-a on b
-space on c
+loup B
+chevre A
+chou B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on a
+loup B
+chevre A
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on table
-space on a
+chevre A
+chou B
+loup A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on b
-a on table
-space on c
-b on a
+chevre A
+chou B
+loup B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on b
-a on table
-space on c
-b on table
-space on a
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on b
-b on table
-space on a
-a on c
+chevre B
+chou A
+loup A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-b on table
-space on a
-a on b
-space on c
+chevre B
+chou A
+loup A
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on a
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on table
-space on a
+loup A
+chevre B
+chou A
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-c on table
-space on table
-space on b
-a on table
-space on a
-b on c
+loup A
+chou A
+chevre A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-space on b
-a on table
-space on c
-b on table
-c on a
+loup A
+chou B
+chevre A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-space on b
-a on table
-c on a
-b on c
+chou B
+chevre A
+loup B
+berger B
+	je lance 3 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on b
-space on a
+chevre A
+loup B
+chou A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on b
-space on a
-a on c
+chevre A
+loup B
+chou B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on a
-space on b
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-c on a
-space on b
-b on c
+chevre A
+loup B
+chou B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on b
-c on table
-space on a
+chevre A
+loup B
+chou B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on b
-c on table
-space on a
-a on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on table
-space on a
-a on b
-space on c
+chou B
+chevre A
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on b
-c on table
-space on a
-b on c
+chou B
+chevre A
+loup B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on b
+chou B
+chevre A
+loup B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on b
-a on c
+chevre A
+loup B
+chou A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on table
-space on b
+chevre A
+loup B
+chou B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-space on b
-a on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-a on b
-space on c
+chou B
+chevre A
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on a
-c on table
-space on b
-b on c
+chou A
+chevre B
+loup B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on table
-space on b
+chou A
+loup B
+chevre A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-space on b
-a on c
+loup B
+chevre A
+chou B
+berger B
+	je lance 3 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-a on b
-space on c
+loup B
+chevre A
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on a
-c on table
-space on b
-b on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on b
+chevre A
+chou B
+loup B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on b
-a on c
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on a
-space on b
+chevre A
+chou B
+loup B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-c on a
-space on b
-b on c
+chevre A
+chou B
+loup B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on b
-c on table
-space on a
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on b
-c on table
-space on a
-a on c
+loup B
+chevre A
+chou B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on table
-space on a
-a on b
-space on c
+loup B
+chevre A
+chou B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on b
-c on table
-space on a
-b on c
+loup B
+chevre A
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-space on b
-a on table
-space on c
-b on table
-c on table
-space on a
+chevre A
+chou B
+loup A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-space on b
-b on table
-c on table
-space on a
-a on c
+chevre A
+chou B
+loup B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on table
-space on a
-a on b
-space on c
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-space on b
-a on table
-c on table
-space on a
-b on c
+chou A
+chevre B
+loup A
+berger A
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on b
+chevre B
+loup A
+chou B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on b
-a on c
+chevre B
+loup A
+chou A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on a
-space on b
+chevre B
+loup A
+chou A
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-c on a
-space on b
-b on c
+loup A
+chou A
+chevre A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on b
-space on a
+loup A
+chou B
+chevre A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on b
-space on a
-a on c
+chou B
+chevre A
+loup B
+berger B
+	je lance 3 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on table
-space on b
+chevre A
+loup B
+chou A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-space on b
-a on c
+chevre A
+loup B
+chou B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-a on b
-space on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on a
-c on table
-space on b
-b on c
+chevre A
+loup B
+chou B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on table
-space on b
+chevre A
+loup B
+chou B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-space on b
-a on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-a on b
-space on c
+chou B
+chevre A
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on a
-c on table
-space on b
-b on c
+chou B
+chevre A
+loup B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on b
+chou B
+chevre A
+loup B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on b
-a on c
+chevre A
+loup B
+chou A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on a
-space on b
+chevre A
+loup B
+chou B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-c on a
-space on b
-b on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on b
-space on a
+chou B
+chevre A
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on b
-space on a
-a on c
+chou A
+chevre B
+loup A
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on table
-space on b
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-space on b
-a on c
+chou A
+loup A
+chevre B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-a on b
-space on c
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on a
+chou A
+loup A
+chevre A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on table
-space on a
+chou A
+loup A
+chevre B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on a
-c on table
-space on b
-b on c
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on b
-c on a
+chou A
+loup A
+chevre B
+berger A
+	je lance 3 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on b
-c on a
-b on c
+loup A
+chevre B
+chou B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on b
-c on table
-space on a
+loup A
+chevre B
+chou A
+berger A
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on b
-c on table
-space on a
-a on c
+chevre B
+chou A
+loup B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on table
-space on a
-a on b
-space on c
+chou A
+loup B
+chevre A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on b
-c on table
-space on a
-b on c
+loup B
+chevre A
+chou B
+berger B
+	je lance 3 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on b
-c on table
-space on a
+loup B
+chevre A
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on b
-c on table
-space on a
-a on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on table
-space on a
-a on b
-space on c
+chevre A
+chou B
+loup B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on a
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on b
-c on table
-space on a
-b on c
+chevre A
+chou B
+loup B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on b
-c on a
+chevre A
+chou B
+loup B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on b
-c on a
-b on c
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on b
-space on a
+loup B
+chevre A
+chou B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on b
-space on a
-a on c
+loup B
+chevre A
+chou B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on table
-space on b
+loup B
+chevre A
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-space on b
-a on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-a on b
-space on c
+chevre A
+chou B
+loup B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on a
-c on table
-space on b
-b on c
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on a
-c on table
-space on b
+chevre B
+chou A
+loup A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-space on b
-a on c
+chevre B
+chou A
+loup A
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on a
-c on table
-a on b
-space on c
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on a
+loup A
+chevre B
+chou A
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-a on b
-space on c
-c on table
-space on a
+loup A
+chou A
+chevre A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on a
-c on table
-space on b
-b on c
+loup A
+chou B
+chevre A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on b
-c on a
+chou B
+chevre A
+loup B
+berger B
+	je lance 3 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on b
-c on a
-b on c
+chevre A
+loup B
+chou A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on b
-space on a
+chevre A
+loup B
+chou B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on b
-space on a
-a on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-c on a
-space on b
+chevre A
+loup B
+chou B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-c on a
-space on b
-b on c
+chevre A
+loup B
+chou B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on b
-c on table
-space on a
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on b
-c on table
-space on a
-a on c
+chou B
+chevre A
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on table
-space on a
-a on b
-space on c
+chou B
+chevre A
+loup B
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on b
-c on table
-space on a
-b on c
+chou B
+chevre A
+loup B
+berger B
+	je lance 2 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on c
-b on table
-space on b
-c on table
-space on a
+chevre A
+loup B
+chou A
+berger A
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-space on b
-c on table
-space on a
-a on c
+chevre A
+loup B
+chou B
+berger B
+	je lance 1 recursivité
 
 
 Mon etat : 
-space on table
-b on table
-c on table
-space on a
-a on b
-space on c
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
 
 
 Mon etat : 
-space on table
-a on table
-space on b
-c on table
-space on a
-b on c
+chou B
+chevre A
+loup A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou A
+chevre B
+loup B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+chou A
+loup B
+chevre A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+loup B
+chevre A
+chou B
+berger B
+	je lance 3 recursivité
+
+
+Mon etat : 
+loup B
+chevre A
+chou A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup B
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup B
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+loup B
+chevre A
+chou B
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+loup B
+chevre A
+chou B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+loup B
+chevre A
+chou A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup B
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou A
+chevre B
+loup A
+berger A
+	je lance 2 recursivité
+
+
+Mon etat : 
+chevre B
+loup A
+chou B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+chevre B
+loup A
+chou A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre B
+loup A
+chou A
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+loup A
+chou A
+chevre A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+loup A
+chou B
+chevre A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou B
+chevre A
+loup B
+berger B
+	je lance 3 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou B
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou B
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou B
+chevre A
+loup A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou B
+chevre A
+loup B
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou B
+chevre A
+loup B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou B
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou B
+chevre A
+loup A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou A
+chevre B
+loup A
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou A
+loup A
+chevre B
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou A
+loup A
+chevre B
+berger A
+	je lance 3 recursivité
+
+
+Mon etat : 
+loup A
+chevre B
+chou B
+berger B
+	je lance 3 recursivité
+
+
+Mon etat : 
+loup A
+chevre B
+chou A
+berger A
+	je lance 2 recursivité
+
+
+Mon etat : 
+chevre B
+chou A
+loup B
+berger B
+	je lance 3 recursivité
+
+
+Mon etat : 
+chou A
+loup B
+chevre A
+berger A
+	je lance 2 recursivité
+
+
+Mon etat : 
+loup B
+chevre A
+chou B
+berger B
+	je lance 3 recursivité
+
+
+Mon etat : 
+loup B
+chevre A
+chou A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+loup B
+chou A
+chevre B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+loup B
+chou A
+chevre A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou A
+chevre B
+loup A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou A
+chevre B
+loup A
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup A
+berger A
+	je lance 2 recursivité
+
+
+Mon etat : 
+chou B
+loup A
+chevre B
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou B
+loup A
+chevre A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou B
+chevre A
+loup B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou B
+chevre A
+loup B
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou B
+chevre A
+loup B
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+chevre A
+loup B
+chou A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+loup B
+chou A
+chevre B
+berger B
+	je lance 2 recursivité
+
+
+Mon etat : 
+loup B
+chou A
+chevre A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chou A
+chevre B
+loup A
+berger A
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou A
+chevre B
+loup A
+berger B
+	je lance 1 recursivité
+
+
+Mon etat : 
+chou A
+loup A
+chevre A
+berger A
+	je lance 0 recursivité
+
+
+Mon etat : 
+chevre A
+chou B
+loup B
+berger A
+	je lance 2 recursivité
 solution trouvée
-solution trouvée par une autre rec, je m'arrete
-solution trouvée par une autre rec, je m'arrete
 solution trouvée par une autre rec, je m'arrete
 solution trouvée par une autre rec, je m'arrete
 solution trouvée par une autre rec, je m'arrete
