@@ -63,6 +63,10 @@ void ajouter_add(Cond add, Cond *etat);
 void parse_cond(char* chaine, Cond *c);
 void print_cond(Cond d);
 void resoudre_fute(Signe act[FILE_LINES/5], Cond start, Cond finish);
+void quels_preconds(Signe act[FILE_LINES/5], Cond etat, int tableau_de_verite[FILE_LINES/5]);
+void copie_cond(Cond *dest, Cond src);
+void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]);
+
 
 
 int main(void){
