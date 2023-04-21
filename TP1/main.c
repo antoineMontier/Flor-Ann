@@ -130,7 +130,8 @@ void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini
         return;
     }
     if(precond_statisfait(finish, etat)){
-        printf("solution trouvée\n");
+        printf("solution trouvée mon etat : \n");
+        print_cond(etat);
         *fini = 1;
         return;
     }
