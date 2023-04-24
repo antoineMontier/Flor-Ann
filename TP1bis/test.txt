@@ -1,0 +1,23 @@
+start:space on a,a on b,b on c,c on table,space on table,
+finish:space on c,c on b,b on a,a on table,space on table,
+****
+action:move a from b to c,
+action:move a from c to b,
+action:move a from table to b,
+action:move a from table to c,
+action:move a from b to table,
+action:move a from c to table,
+****
+action:move b from a to c,
+action:move b from c to a,
+action:move b from table to a,
+action:move b from table to c,
+action:move b from a to table,
+action:move b from c to table,
+****
+action:move c from a to b,
+action:move c from b to a,
+action:move c from table to a,
+action:move c from table to b,
+action:move c from a to table,
+action:move c from b to table,
