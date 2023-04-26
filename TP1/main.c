@@ -12,10 +12,6 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #define MAX_LINE_LENGTH 100
 #define FILE_LINES 82
 #define NB_MAX_CONDS 20
-#define A 123
-#define B 124
-#define C 125
-#define VIDE 126
 
 #define ACTION (-1024)
 #define PRECOND (-1025)
