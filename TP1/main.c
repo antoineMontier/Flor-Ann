@@ -9,9 +9,9 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #include <string.h>
 #include <stdio.h>
 
-#define MAX_LINE_LENGTH 100
-#define FILE_LINES 82
-#define NB_MAX_CONDS 20
+#define MAX_LINE_LENGTH 256
+#define FILE_LINES 242
+#define NB_MAX_CONDS 100
 
 #define ACTION (-1024)
 #define PRECOND (-1025)
@@ -65,10 +65,10 @@ void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini
 
 
 
-int main(void){
+int main(){
     
     char** fichier;
-    fichier = lecture("riviere.txt");
+    fichier = lecture("4blocs.txt");
 
     Cond start, finish;
     parse_cond(fichier[0], &start);

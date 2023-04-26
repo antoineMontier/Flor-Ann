@@ -11,7 +11,8 @@ void ecrire_regles(char* filename, int nb_blocs);
 
 int main(){
 
-    ecrire_regles("test.txt", 3);
+
+
     return 0;
 }
 
@@ -33,22 +34,35 @@ void ecrire_regles(char* filename, int nb_blocs){
 
 
     for(int bloc_actuel = 0 ; bloc_actuel < nb_blocs ; bloc_actuel++){
-        fprintf(f, "****\n");
         for(int bloc_src = 0 ; bloc_src < nb_blocs ; bloc_src++){
             for(int bloc_dest = 0 ; bloc_dest < nb_blocs ; bloc_dest++){
                 if(bloc_actuel != bloc_src && bloc_src != bloc_dest && bloc_dest != bloc_actuel){
+                    fprintf(f, "****\n");
                     fprintf(f, "action:move %c from %c to %c,\n", 'a' + bloc_actuel, 'a' + bloc_src, 'a' + bloc_dest);
+                    fprintf(f, "preconds:space on %c,space on %c,%c on %c,\n", 'a' + bloc_actuel, 'a' + bloc_dest, 'a' + bloc_actuel, 'a' + bloc_src);
+                    fprintf(f, "add:%c on %c,space on %c,\n", 'a' + bloc_actuel, 'a' + bloc_dest, 'a' + bloc_src);
+                    fprintf(f, "delete:%c on %c,space on %c,\n",'a' + bloc_actuel, 'a' + bloc_src, 'a' + bloc_dest);
                 }
             }
         }
         // table vers n'importe ou
         for(int bloc_dest = 0 ; bloc_dest < nb_blocs ; bloc_dest++)
-            if(bloc_actuel != bloc_dest)
-            fprintf(f, "action:move %c from table to %c,\n", 'a' + bloc_actuel, 'a' + bloc_dest);
+            if(bloc_actuel != bloc_dest){
+                fprintf(f, "****\n");
+                fprintf(f, "action:move %c from table to %c,\n", 'a' + bloc_actuel, 'a' + bloc_dest);
+                fprintf(f, "preconds:space on %c,space on %c,%c on table,\n", 'a' + bloc_actuel, 'a' + bloc_dest, 'a' + bloc_actuel);
+                fprintf(f, "add:%c on %c,\n", 'a' + bloc_actuel, 'a' + bloc_dest);
+                fprintf(f, "delete:%c on table,space on %c,\n",'a' + bloc_actuel, 'a' + bloc_dest);
+            }
         // n'importe ou vers la table
         for(int bloc_src = 0 ; bloc_src < nb_blocs ; bloc_src++)
-            if(bloc_actuel != bloc_src)
-            fprintf(f, "action:move %c from %c to table,\n", 'a' + bloc_actuel, 'a' + bloc_src);
+            if(bloc_actuel != bloc_src){
+                fprintf(f, "****\n");
+                fprintf(f, "action:move %c from %c to table,\n", 'a' + bloc_actuel, 'a' + bloc_src);
+                fprintf(f, "preconds:space on %c,space on table,%c on %c,\n", 'a' + bloc_actuel, 'a' + bloc_actuel, 'a' + bloc_src);
+                fprintf(f, "add:%c on table,space on %c,\n", 'a' + bloc_actuel, 'a' + bloc_src);
+                fprintf(f, "delete:%c on %c,\n",'a' + bloc_actuel, 'a' + bloc_src);
+            }
 
     }
 

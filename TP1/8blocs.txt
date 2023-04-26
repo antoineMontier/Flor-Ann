@@ -1,0 +1,2242 @@
+start:space on a,a on b,b on c,c on d,d on e,e on f,f on g,g on h,h on table,space on table,
+finish:space on h,h on g,g on f,f on e,e on d,d on c,c on b,b on a,a on table,space on table,
+****
+action:move a from b to c,
+preconds:space on a,space on c,a on b,
+add:a on c,space on b,
+delete:a on b,space on c,
+****
+action:move a from b to d,
+preconds:space on a,space on d,a on b,
+add:a on d,space on b,
+delete:a on b,space on d,
+****
+action:move a from b to e,
+preconds:space on a,space on e,a on b,
+add:a on e,space on b,
+delete:a on b,space on e,
+****
+action:move a from b to f,
+preconds:space on a,space on f,a on b,
+add:a on f,space on b,
+delete:a on b,space on f,
+****
+action:move a from b to g,
+preconds:space on a,space on g,a on b,
+add:a on g,space on b,
+delete:a on b,space on g,
+****
+action:move a from b to h,
+preconds:space on a,space on h,a on b,
+add:a on h,space on b,
+delete:a on b,space on h,
+****
+action:move a from c to b,
+preconds:space on a,space on b,a on c,
+add:a on b,space on c,
+delete:a on c,space on b,
+****
+action:move a from c to d,
+preconds:space on a,space on d,a on c,
+add:a on d,space on c,
+delete:a on c,space on d,
+****
+action:move a from c to e,
+preconds:space on a,space on e,a on c,
+add:a on e,space on c,
+delete:a on c,space on e,
+****
+action:move a from c to f,
+preconds:space on a,space on f,a on c,
+add:a on f,space on c,
+delete:a on c,space on f,
+****
+action:move a from c to g,
+preconds:space on a,space on g,a on c,
+add:a on g,space on c,
+delete:a on c,space on g,
+****
+action:move a from c to h,
+preconds:space on a,space on h,a on c,
+add:a on h,space on c,
+delete:a on c,space on h,
+****
+action:move a from d to b,
+preconds:space on a,space on b,a on d,
+add:a on b,space on d,
+delete:a on d,space on b,
+****
+action:move a from d to c,
+preconds:space on a,space on c,a on d,
+add:a on c,space on d,
+delete:a on d,space on c,
+****
+action:move a from d to e,
+preconds:space on a,space on e,a on d,
+add:a on e,space on d,
+delete:a on d,space on e,
+****
+action:move a from d to f,
+preconds:space on a,space on f,a on d,
+add:a on f,space on d,
+delete:a on d,space on f,
+****
+action:move a from d to g,
+preconds:space on a,space on g,a on d,
+add:a on g,space on d,
+delete:a on d,space on g,
+****
+action:move a from d to h,
+preconds:space on a,space on h,a on d,
+add:a on h,space on d,
+delete:a on d,space on h,
+****
+action:move a from e to b,
+preconds:space on a,space on b,a on e,
+add:a on b,space on e,
+delete:a on e,space on b,
+****
+action:move a from e to c,
+preconds:space on a,space on c,a on e,
+add:a on c,space on e,
+delete:a on e,space on c,
+****
+action:move a from e to d,
+preconds:space on a,space on d,a on e,
+add:a on d,space on e,
+delete:a on e,space on d,
+****
+action:move a from e to f,
+preconds:space on a,space on f,a on e,
+add:a on f,space on e,
+delete:a on e,space on f,
+****
+action:move a from e to g,
+preconds:space on a,space on g,a on e,
+add:a on g,space on e,
+delete:a on e,space on g,
+****
+action:move a from e to h,
+preconds:space on a,space on h,a on e,
+add:a on h,space on e,
+delete:a on e,space on h,
+****
+action:move a from f to b,
+preconds:space on a,space on b,a on f,
+add:a on b,space on f,
+delete:a on f,space on b,
+****
+action:move a from f to c,
+preconds:space on a,space on c,a on f,
+add:a on c,space on f,
+delete:a on f,space on c,
+****
+action:move a from f to d,
+preconds:space on a,space on d,a on f,
+add:a on d,space on f,
+delete:a on f,space on d,
+****
+action:move a from f to e,
+preconds:space on a,space on e,a on f,
+add:a on e,space on f,
+delete:a on f,space on e,
+****
+action:move a from f to g,
+preconds:space on a,space on g,a on f,
+add:a on g,space on f,
+delete:a on f,space on g,
+****
+action:move a from f to h,
+preconds:space on a,space on h,a on f,
+add:a on h,space on f,
+delete:a on f,space on h,
+****
+action:move a from g to b,
+preconds:space on a,space on b,a on g,
+add:a on b,space on g,
+delete:a on g,space on b,
+****
+action:move a from g to c,
+preconds:space on a,space on c,a on g,
+add:a on c,space on g,
+delete:a on g,space on c,
+****
+action:move a from g to d,
+preconds:space on a,space on d,a on g,
+add:a on d,space on g,
+delete:a on g,space on d,
+****
+action:move a from g to e,
+preconds:space on a,space on e,a on g,
+add:a on e,space on g,
+delete:a on g,space on e,
+****
+action:move a from g to f,
+preconds:space on a,space on f,a on g,
+add:a on f,space on g,
+delete:a on g,space on f,
+****
+action:move a from g to h,
+preconds:space on a,space on h,a on g,
+add:a on h,space on g,
+delete:a on g,space on h,
+****
+action:move a from h to b,
+preconds:space on a,space on b,a on h,
+add:a on b,space on h,
+delete:a on h,space on b,
+****
+action:move a from h to c,
+preconds:space on a,space on c,a on h,
+add:a on c,space on h,
+delete:a on h,space on c,
+****
+action:move a from h to d,
+preconds:space on a,space on d,a on h,
+add:a on d,space on h,
+delete:a on h,space on d,
+****
+action:move a from h to e,
+preconds:space on a,space on e,a on h,
+add:a on e,space on h,
+delete:a on h,space on e,
+****
+action:move a from h to f,
+preconds:space on a,space on f,a on h,
+add:a on f,space on h,
+delete:a on h,space on f,
+****
+action:move a from h to g,
+preconds:space on a,space on g,a on h,
+add:a on g,space on h,
+delete:a on h,space on g,
+****
+action:move a from table to b,
+preconds:space on a,space on b,a on table,
+add:a on b,
+delete:a on table,space on b,
+****
+action:move a from table to c,
+preconds:space on a,space on c,a on table,
+add:a on c,
+delete:a on table,space on c,
+****
+action:move a from table to d,
+preconds:space on a,space on d,a on table,
+add:a on d,
+delete:a on table,space on d,
+****
+action:move a from table to e,
+preconds:space on a,space on e,a on table,
+add:a on e,
+delete:a on table,space on e,
+****
+action:move a from table to f,
+preconds:space on a,space on f,a on table,
+add:a on f,
+delete:a on table,space on f,
+****
+action:move a from table to g,
+preconds:space on a,space on g,a on table,
+add:a on g,
+delete:a on table,space on g,
+****
+action:move a from table to h,
+preconds:space on a,space on h,a on table,
+add:a on h,
+delete:a on table,space on h,
+****
+action:move a from b to table,
+preconds:space on a,space on table,a on b,
+add:a on table,space on b,
+delete:a on b,
+****
+action:move a from c to table,
+preconds:space on a,space on table,a on c,
+add:a on table,space on c,
+delete:a on c,
+****
+action:move a from d to table,
+preconds:space on a,space on table,a on d,
+add:a on table,space on d,
+delete:a on d,
+****
+action:move a from e to table,
+preconds:space on a,space on table,a on e,
+add:a on table,space on e,
+delete:a on e,
+****
+action:move a from f to table,
+preconds:space on a,space on table,a on f,
+add:a on table,space on f,
+delete:a on f,
+****
+action:move a from g to table,
+preconds:space on a,space on table,a on g,
+add:a on table,space on g,
+delete:a on g,
+****
+action:move a from h to table,
+preconds:space on a,space on table,a on h,
+add:a on table,space on h,
+delete:a on h,
+****
+action:move b from a to c,
+preconds:space on b,space on c,b on a,
+add:b on c,space on a,
+delete:b on a,space on c,
+****
+action:move b from a to d,
+preconds:space on b,space on d,b on a,
+add:b on d,space on a,
+delete:b on a,space on d,
+****
+action:move b from a to e,
+preconds:space on b,space on e,b on a,
+add:b on e,space on a,
+delete:b on a,space on e,
+****
+action:move b from a to f,
+preconds:space on b,space on f,b on a,
+add:b on f,space on a,
+delete:b on a,space on f,
+****
+action:move b from a to g,
+preconds:space on b,space on g,b on a,
+add:b on g,space on a,
+delete:b on a,space on g,
+****
+action:move b from a to h,
+preconds:space on b,space on h,b on a,
+add:b on h,space on a,
+delete:b on a,space on h,
+****
+action:move b from c to a,
+preconds:space on b,space on a,b on c,
+add:b on a,space on c,
+delete:b on c,space on a,
+****
+action:move b from c to d,
+preconds:space on b,space on d,b on c,
+add:b on d,space on c,
+delete:b on c,space on d,
+****
+action:move b from c to e,
+preconds:space on b,space on e,b on c,
+add:b on e,space on c,
+delete:b on c,space on e,
+****
+action:move b from c to f,
+preconds:space on b,space on f,b on c,
+add:b on f,space on c,
+delete:b on c,space on f,
+****
+action:move b from c to g,
+preconds:space on b,space on g,b on c,
+add:b on g,space on c,
+delete:b on c,space on g,
+****
+action:move b from c to h,
+preconds:space on b,space on h,b on c,
+add:b on h,space on c,
+delete:b on c,space on h,
+****
+action:move b from d to a,
+preconds:space on b,space on a,b on d,
+add:b on a,space on d,
+delete:b on d,space on a,
+****
+action:move b from d to c,
+preconds:space on b,space on c,b on d,
+add:b on c,space on d,
+delete:b on d,space on c,
+****
+action:move b from d to e,
+preconds:space on b,space on e,b on d,
+add:b on e,space on d,
+delete:b on d,space on e,
+****
+action:move b from d to f,
+preconds:space on b,space on f,b on d,
+add:b on f,space on d,
+delete:b on d,space on f,
+****
+action:move b from d to g,
+preconds:space on b,space on g,b on d,
+add:b on g,space on d,
+delete:b on d,space on g,
+****
+action:move b from d to h,
+preconds:space on b,space on h,b on d,
+add:b on h,space on d,
+delete:b on d,space on h,
+****
+action:move b from e to a,
+preconds:space on b,space on a,b on e,
+add:b on a,space on e,
+delete:b on e,space on a,
+****
+action:move b from e to c,
+preconds:space on b,space on c,b on e,
+add:b on c,space on e,
+delete:b on e,space on c,
+****
+action:move b from e to d,
+preconds:space on b,space on d,b on e,
+add:b on d,space on e,
+delete:b on e,space on d,
+****
+action:move b from e to f,
+preconds:space on b,space on f,b on e,
+add:b on f,space on e,
+delete:b on e,space on f,
+****
+action:move b from e to g,
+preconds:space on b,space on g,b on e,
+add:b on g,space on e,
+delete:b on e,space on g,
+****
+action:move b from e to h,
+preconds:space on b,space on h,b on e,
+add:b on h,space on e,
+delete:b on e,space on h,
+****
+action:move b from f to a,
+preconds:space on b,space on a,b on f,
+add:b on a,space on f,
+delete:b on f,space on a,
+****
+action:move b from f to c,
+preconds:space on b,space on c,b on f,
+add:b on c,space on f,
+delete:b on f,space on c,
+****
+action:move b from f to d,
+preconds:space on b,space on d,b on f,
+add:b on d,space on f,
+delete:b on f,space on d,
+****
+action:move b from f to e,
+preconds:space on b,space on e,b on f,
+add:b on e,space on f,
+delete:b on f,space on e,
+****
+action:move b from f to g,
+preconds:space on b,space on g,b on f,
+add:b on g,space on f,
+delete:b on f,space on g,
+****
+action:move b from f to h,
+preconds:space on b,space on h,b on f,
+add:b on h,space on f,
+delete:b on f,space on h,
+****
+action:move b from g to a,
+preconds:space on b,space on a,b on g,
+add:b on a,space on g,
+delete:b on g,space on a,
+****
+action:move b from g to c,
+preconds:space on b,space on c,b on g,
+add:b on c,space on g,
+delete:b on g,space on c,
+****
+action:move b from g to d,
+preconds:space on b,space on d,b on g,
+add:b on d,space on g,
+delete:b on g,space on d,
+****
+action:move b from g to e,
+preconds:space on b,space on e,b on g,
+add:b on e,space on g,
+delete:b on g,space on e,
+****
+action:move b from g to f,
+preconds:space on b,space on f,b on g,
+add:b on f,space on g,
+delete:b on g,space on f,
+****
+action:move b from g to h,
+preconds:space on b,space on h,b on g,
+add:b on h,space on g,
+delete:b on g,space on h,
+****
+action:move b from h to a,
+preconds:space on b,space on a,b on h,
+add:b on a,space on h,
+delete:b on h,space on a,
+****
+action:move b from h to c,
+preconds:space on b,space on c,b on h,
+add:b on c,space on h,
+delete:b on h,space on c,
+****
+action:move b from h to d,
+preconds:space on b,space on d,b on h,
+add:b on d,space on h,
+delete:b on h,space on d,
+****
+action:move b from h to e,
+preconds:space on b,space on e,b on h,
+add:b on e,space on h,
+delete:b on h,space on e,
+****
+action:move b from h to f,
+preconds:space on b,space on f,b on h,
+add:b on f,space on h,
+delete:b on h,space on f,
+****
+action:move b from h to g,
+preconds:space on b,space on g,b on h,
+add:b on g,space on h,
+delete:b on h,space on g,
+****
+action:move b from table to a,
+preconds:space on b,space on a,b on table,
+add:b on a,
+delete:b on table,space on a,
+****
+action:move b from table to c,
+preconds:space on b,space on c,b on table,
+add:b on c,
+delete:b on table,space on c,
+****
+action:move b from table to d,
+preconds:space on b,space on d,b on table,
+add:b on d,
+delete:b on table,space on d,
+****
+action:move b from table to e,
+preconds:space on b,space on e,b on table,
+add:b on e,
+delete:b on table,space on e,
+****
+action:move b from table to f,
+preconds:space on b,space on f,b on table,
+add:b on f,
+delete:b on table,space on f,
+****
+action:move b from table to g,
+preconds:space on b,space on g,b on table,
+add:b on g,
+delete:b on table,space on g,
+****
+action:move b from table to h,
+preconds:space on b,space on h,b on table,
+add:b on h,
+delete:b on table,space on h,
+****
+action:move b from a to table,
+preconds:space on b,space on table,b on a,
+add:b on table,space on a,
+delete:b on a,
+****
+action:move b from c to table,
+preconds:space on b,space on table,b on c,
+add:b on table,space on c,
+delete:b on c,
+****
+action:move b from d to table,
+preconds:space on b,space on table,b on d,
+add:b on table,space on d,
+delete:b on d,
+****
+action:move b from e to table,
+preconds:space on b,space on table,b on e,
+add:b on table,space on e,
+delete:b on e,
+****
+action:move b from f to table,
+preconds:space on b,space on table,b on f,
+add:b on table,space on f,
+delete:b on f,
+****
+action:move b from g to table,
+preconds:space on b,space on table,b on g,
+add:b on table,space on g,
+delete:b on g,
+****
+action:move b from h to table,
+preconds:space on b,space on table,b on h,
+add:b on table,space on h,
+delete:b on h,
+****
+action:move c from a to b,
+preconds:space on c,space on b,c on a,
+add:c on b,space on a,
+delete:c on a,space on b,
+****
+action:move c from a to d,
+preconds:space on c,space on d,c on a,
+add:c on d,space on a,
+delete:c on a,space on d,
+****
+action:move c from a to e,
+preconds:space on c,space on e,c on a,
+add:c on e,space on a,
+delete:c on a,space on e,
+****
+action:move c from a to f,
+preconds:space on c,space on f,c on a,
+add:c on f,space on a,
+delete:c on a,space on f,
+****
+action:move c from a to g,
+preconds:space on c,space on g,c on a,
+add:c on g,space on a,
+delete:c on a,space on g,
+****
+action:move c from a to h,
+preconds:space on c,space on h,c on a,
+add:c on h,space on a,
+delete:c on a,space on h,
+****
+action:move c from b to a,
+preconds:space on c,space on a,c on b,
+add:c on a,space on b,
+delete:c on b,space on a,
+****
+action:move c from b to d,
+preconds:space on c,space on d,c on b,
+add:c on d,space on b,
+delete:c on b,space on d,
+****
+action:move c from b to e,
+preconds:space on c,space on e,c on b,
+add:c on e,space on b,
+delete:c on b,space on e,
+****
+action:move c from b to f,
+preconds:space on c,space on f,c on b,
+add:c on f,space on b,
+delete:c on b,space on f,
+****
+action:move c from b to g,
+preconds:space on c,space on g,c on b,
+add:c on g,space on b,
+delete:c on b,space on g,
+****
+action:move c from b to h,
+preconds:space on c,space on h,c on b,
+add:c on h,space on b,
+delete:c on b,space on h,
+****
+action:move c from d to a,
+preconds:space on c,space on a,c on d,
+add:c on a,space on d,
+delete:c on d,space on a,
+****
+action:move c from d to b,
+preconds:space on c,space on b,c on d,
+add:c on b,space on d,
+delete:c on d,space on b,
+****
+action:move c from d to e,
+preconds:space on c,space on e,c on d,
+add:c on e,space on d,
+delete:c on d,space on e,
+****
+action:move c from d to f,
+preconds:space on c,space on f,c on d,
+add:c on f,space on d,
+delete:c on d,space on f,
+****
+action:move c from d to g,
+preconds:space on c,space on g,c on d,
+add:c on g,space on d,
+delete:c on d,space on g,
+****
+action:move c from d to h,
+preconds:space on c,space on h,c on d,
+add:c on h,space on d,
+delete:c on d,space on h,
+****
+action:move c from e to a,
+preconds:space on c,space on a,c on e,
+add:c on a,space on e,
+delete:c on e,space on a,
+****
+action:move c from e to b,
+preconds:space on c,space on b,c on e,
+add:c on b,space on e,
+delete:c on e,space on b,
+****
+action:move c from e to d,
+preconds:space on c,space on d,c on e,
+add:c on d,space on e,
+delete:c on e,space on d,
+****
+action:move c from e to f,
+preconds:space on c,space on f,c on e,
+add:c on f,space on e,
+delete:c on e,space on f,
+****
+action:move c from e to g,
+preconds:space on c,space on g,c on e,
+add:c on g,space on e,
+delete:c on e,space on g,
+****
+action:move c from e to h,
+preconds:space on c,space on h,c on e,
+add:c on h,space on e,
+delete:c on e,space on h,
+****
+action:move c from f to a,
+preconds:space on c,space on a,c on f,
+add:c on a,space on f,
+delete:c on f,space on a,
+****
+action:move c from f to b,
+preconds:space on c,space on b,c on f,
+add:c on b,space on f,
+delete:c on f,space on b,
+****
+action:move c from f to d,
+preconds:space on c,space on d,c on f,
+add:c on d,space on f,
+delete:c on f,space on d,
+****
+action:move c from f to e,
+preconds:space on c,space on e,c on f,
+add:c on e,space on f,
+delete:c on f,space on e,
+****
+action:move c from f to g,
+preconds:space on c,space on g,c on f,
+add:c on g,space on f,
+delete:c on f,space on g,
+****
+action:move c from f to h,
+preconds:space on c,space on h,c on f,
+add:c on h,space on f,
+delete:c on f,space on h,
+****
+action:move c from g to a,
+preconds:space on c,space on a,c on g,
+add:c on a,space on g,
+delete:c on g,space on a,
+****
+action:move c from g to b,
+preconds:space on c,space on b,c on g,
+add:c on b,space on g,
+delete:c on g,space on b,
+****
+action:move c from g to d,
+preconds:space on c,space on d,c on g,
+add:c on d,space on g,
+delete:c on g,space on d,
+****
+action:move c from g to e,
+preconds:space on c,space on e,c on g,
+add:c on e,space on g,
+delete:c on g,space on e,
+****
+action:move c from g to f,
+preconds:space on c,space on f,c on g,
+add:c on f,space on g,
+delete:c on g,space on f,
+****
+action:move c from g to h,
+preconds:space on c,space on h,c on g,
+add:c on h,space on g,
+delete:c on g,space on h,
+****
+action:move c from h to a,
+preconds:space on c,space on a,c on h,
+add:c on a,space on h,
+delete:c on h,space on a,
+****
+action:move c from h to b,
+preconds:space on c,space on b,c on h,
+add:c on b,space on h,
+delete:c on h,space on b,
+****
+action:move c from h to d,
+preconds:space on c,space on d,c on h,
+add:c on d,space on h,
+delete:c on h,space on d,
+****
+action:move c from h to e,
+preconds:space on c,space on e,c on h,
+add:c on e,space on h,
+delete:c on h,space on e,
+****
+action:move c from h to f,
+preconds:space on c,space on f,c on h,
+add:c on f,space on h,
+delete:c on h,space on f,
+****
+action:move c from h to g,
+preconds:space on c,space on g,c on h,
+add:c on g,space on h,
+delete:c on h,space on g,
+****
+action:move c from table to a,
+preconds:space on c,space on a,c on table,
+add:c on a,
+delete:c on table,space on a,
+****
+action:move c from table to b,
+preconds:space on c,space on b,c on table,
+add:c on b,
+delete:c on table,space on b,
+****
+action:move c from table to d,
+preconds:space on c,space on d,c on table,
+add:c on d,
+delete:c on table,space on d,
+****
+action:move c from table to e,
+preconds:space on c,space on e,c on table,
+add:c on e,
+delete:c on table,space on e,
+****
+action:move c from table to f,
+preconds:space on c,space on f,c on table,
+add:c on f,
+delete:c on table,space on f,
+****
+action:move c from table to g,
+preconds:space on c,space on g,c on table,
+add:c on g,
+delete:c on table,space on g,
+****
+action:move c from table to h,
+preconds:space on c,space on h,c on table,
+add:c on h,
+delete:c on table,space on h,
+****
+action:move c from a to table,
+preconds:space on c,space on table,c on a,
+add:c on table,space on a,
+delete:c on a,
+****
+action:move c from b to table,
+preconds:space on c,space on table,c on b,
+add:c on table,space on b,
+delete:c on b,
+****
+action:move c from d to table,
+preconds:space on c,space on table,c on d,
+add:c on table,space on d,
+delete:c on d,
+****
+action:move c from e to table,
+preconds:space on c,space on table,c on e,
+add:c on table,space on e,
+delete:c on e,
+****
+action:move c from f to table,
+preconds:space on c,space on table,c on f,
+add:c on table,space on f,
+delete:c on f,
+****
+action:move c from g to table,
+preconds:space on c,space on table,c on g,
+add:c on table,space on g,
+delete:c on g,
+****
+action:move c from h to table,
+preconds:space on c,space on table,c on h,
+add:c on table,space on h,
+delete:c on h,
+****
+action:move d from a to b,
+preconds:space on d,space on b,d on a,
+add:d on b,space on a,
+delete:d on a,space on b,
+****
+action:move d from a to c,
+preconds:space on d,space on c,d on a,
+add:d on c,space on a,
+delete:d on a,space on c,
+****
+action:move d from a to e,
+preconds:space on d,space on e,d on a,
+add:d on e,space on a,
+delete:d on a,space on e,
+****
+action:move d from a to f,
+preconds:space on d,space on f,d on a,
+add:d on f,space on a,
+delete:d on a,space on f,
+****
+action:move d from a to g,
+preconds:space on d,space on g,d on a,
+add:d on g,space on a,
+delete:d on a,space on g,
+****
+action:move d from a to h,
+preconds:space on d,space on h,d on a,
+add:d on h,space on a,
+delete:d on a,space on h,
+****
+action:move d from b to a,
+preconds:space on d,space on a,d on b,
+add:d on a,space on b,
+delete:d on b,space on a,
+****
+action:move d from b to c,
+preconds:space on d,space on c,d on b,
+add:d on c,space on b,
+delete:d on b,space on c,
+****
+action:move d from b to e,
+preconds:space on d,space on e,d on b,
+add:d on e,space on b,
+delete:d on b,space on e,
+****
+action:move d from b to f,
+preconds:space on d,space on f,d on b,
+add:d on f,space on b,
+delete:d on b,space on f,
+****
+action:move d from b to g,
+preconds:space on d,space on g,d on b,
+add:d on g,space on b,
+delete:d on b,space on g,
+****
+action:move d from b to h,
+preconds:space on d,space on h,d on b,
+add:d on h,space on b,
+delete:d on b,space on h,
+****
+action:move d from c to a,
+preconds:space on d,space on a,d on c,
+add:d on a,space on c,
+delete:d on c,space on a,
+****
+action:move d from c to b,
+preconds:space on d,space on b,d on c,
+add:d on b,space on c,
+delete:d on c,space on b,
+****
+action:move d from c to e,
+preconds:space on d,space on e,d on c,
+add:d on e,space on c,
+delete:d on c,space on e,
+****
+action:move d from c to f,
+preconds:space on d,space on f,d on c,
+add:d on f,space on c,
+delete:d on c,space on f,
+****
+action:move d from c to g,
+preconds:space on d,space on g,d on c,
+add:d on g,space on c,
+delete:d on c,space on g,
+****
+action:move d from c to h,
+preconds:space on d,space on h,d on c,
+add:d on h,space on c,
+delete:d on c,space on h,
+****
+action:move d from e to a,
+preconds:space on d,space on a,d on e,
+add:d on a,space on e,
+delete:d on e,space on a,
+****
+action:move d from e to b,
+preconds:space on d,space on b,d on e,
+add:d on b,space on e,
+delete:d on e,space on b,
+****
+action:move d from e to c,
+preconds:space on d,space on c,d on e,
+add:d on c,space on e,
+delete:d on e,space on c,
+****
+action:move d from e to f,
+preconds:space on d,space on f,d on e,
+add:d on f,space on e,
+delete:d on e,space on f,
+****
+action:move d from e to g,
+preconds:space on d,space on g,d on e,
+add:d on g,space on e,
+delete:d on e,space on g,
+****
+action:move d from e to h,
+preconds:space on d,space on h,d on e,
+add:d on h,space on e,
+delete:d on e,space on h,
+****
+action:move d from f to a,
+preconds:space on d,space on a,d on f,
+add:d on a,space on f,
+delete:d on f,space on a,
+****
+action:move d from f to b,
+preconds:space on d,space on b,d on f,
+add:d on b,space on f,
+delete:d on f,space on b,
+****
+action:move d from f to c,
+preconds:space on d,space on c,d on f,
+add:d on c,space on f,
+delete:d on f,space on c,
+****
+action:move d from f to e,
+preconds:space on d,space on e,d on f,
+add:d on e,space on f,
+delete:d on f,space on e,
+****
+action:move d from f to g,
+preconds:space on d,space on g,d on f,
+add:d on g,space on f,
+delete:d on f,space on g,
+****
+action:move d from f to h,
+preconds:space on d,space on h,d on f,
+add:d on h,space on f,
+delete:d on f,space on h,
+****
+action:move d from g to a,
+preconds:space on d,space on a,d on g,
+add:d on a,space on g,
+delete:d on g,space on a,
+****
+action:move d from g to b,
+preconds:space on d,space on b,d on g,
+add:d on b,space on g,
+delete:d on g,space on b,
+****
+action:move d from g to c,
+preconds:space on d,space on c,d on g,
+add:d on c,space on g,
+delete:d on g,space on c,
+****
+action:move d from g to e,
+preconds:space on d,space on e,d on g,
+add:d on e,space on g,
+delete:d on g,space on e,
+****
+action:move d from g to f,
+preconds:space on d,space on f,d on g,
+add:d on f,space on g,
+delete:d on g,space on f,
+****
+action:move d from g to h,
+preconds:space on d,space on h,d on g,
+add:d on h,space on g,
+delete:d on g,space on h,
+****
+action:move d from h to a,
+preconds:space on d,space on a,d on h,
+add:d on a,space on h,
+delete:d on h,space on a,
+****
+action:move d from h to b,
+preconds:space on d,space on b,d on h,
+add:d on b,space on h,
+delete:d on h,space on b,
+****
+action:move d from h to c,
+preconds:space on d,space on c,d on h,
+add:d on c,space on h,
+delete:d on h,space on c,
+****
+action:move d from h to e,
+preconds:space on d,space on e,d on h,
+add:d on e,space on h,
+delete:d on h,space on e,
+****
+action:move d from h to f,
+preconds:space on d,space on f,d on h,
+add:d on f,space on h,
+delete:d on h,space on f,
+****
+action:move d from h to g,
+preconds:space on d,space on g,d on h,
+add:d on g,space on h,
+delete:d on h,space on g,
+****
+action:move d from table to a,
+preconds:space on d,space on a,d on table,
+add:d on a,
+delete:d on table,space on a,
+****
+action:move d from table to b,
+preconds:space on d,space on b,d on table,
+add:d on b,
+delete:d on table,space on b,
+****
+action:move d from table to c,
+preconds:space on d,space on c,d on table,
+add:d on c,
+delete:d on table,space on c,
+****
+action:move d from table to e,
+preconds:space on d,space on e,d on table,
+add:d on e,
+delete:d on table,space on e,
+****
+action:move d from table to f,
+preconds:space on d,space on f,d on table,
+add:d on f,
+delete:d on table,space on f,
+****
+action:move d from table to g,
+preconds:space on d,space on g,d on table,
+add:d on g,
+delete:d on table,space on g,
+****
+action:move d from table to h,
+preconds:space on d,space on h,d on table,
+add:d on h,
+delete:d on table,space on h,
+****
+action:move d from a to table,
+preconds:space on d,space on table,d on a,
+add:d on table,space on a,
+delete:d on a,
+****
+action:move d from b to table,
+preconds:space on d,space on table,d on b,
+add:d on table,space on b,
+delete:d on b,
+****
+action:move d from c to table,
+preconds:space on d,space on table,d on c,
+add:d on table,space on c,
+delete:d on c,
+****
+action:move d from e to table,
+preconds:space on d,space on table,d on e,
+add:d on table,space on e,
+delete:d on e,
+****
+action:move d from f to table,
+preconds:space on d,space on table,d on f,
+add:d on table,space on f,
+delete:d on f,
+****
+action:move d from g to table,
+preconds:space on d,space on table,d on g,
+add:d on table,space on g,
+delete:d on g,
+****
+action:move d from h to table,
+preconds:space on d,space on table,d on h,
+add:d on table,space on h,
+delete:d on h,
+****
+action:move e from a to b,
+preconds:space on e,space on b,e on a,
+add:e on b,space on a,
+delete:e on a,space on b,
+****
+action:move e from a to c,
+preconds:space on e,space on c,e on a,
+add:e on c,space on a,
+delete:e on a,space on c,
+****
+action:move e from a to d,
+preconds:space on e,space on d,e on a,
+add:e on d,space on a,
+delete:e on a,space on d,
+****
+action:move e from a to f,
+preconds:space on e,space on f,e on a,
+add:e on f,space on a,
+delete:e on a,space on f,
+****
+action:move e from a to g,
+preconds:space on e,space on g,e on a,
+add:e on g,space on a,
+delete:e on a,space on g,
+****
+action:move e from a to h,
+preconds:space on e,space on h,e on a,
+add:e on h,space on a,
+delete:e on a,space on h,
+****
+action:move e from b to a,
+preconds:space on e,space on a,e on b,
+add:e on a,space on b,
+delete:e on b,space on a,
+****
+action:move e from b to c,
+preconds:space on e,space on c,e on b,
+add:e on c,space on b,
+delete:e on b,space on c,
+****
+action:move e from b to d,
+preconds:space on e,space on d,e on b,
+add:e on d,space on b,
+delete:e on b,space on d,
+****
+action:move e from b to f,
+preconds:space on e,space on f,e on b,
+add:e on f,space on b,
+delete:e on b,space on f,
+****
+action:move e from b to g,
+preconds:space on e,space on g,e on b,
+add:e on g,space on b,
+delete:e on b,space on g,
+****
+action:move e from b to h,
+preconds:space on e,space on h,e on b,
+add:e on h,space on b,
+delete:e on b,space on h,
+****
+action:move e from c to a,
+preconds:space on e,space on a,e on c,
+add:e on a,space on c,
+delete:e on c,space on a,
+****
+action:move e from c to b,
+preconds:space on e,space on b,e on c,
+add:e on b,space on c,
+delete:e on c,space on b,
+****
+action:move e from c to d,
+preconds:space on e,space on d,e on c,
+add:e on d,space on c,
+delete:e on c,space on d,
+****
+action:move e from c to f,
+preconds:space on e,space on f,e on c,
+add:e on f,space on c,
+delete:e on c,space on f,
+****
+action:move e from c to g,
+preconds:space on e,space on g,e on c,
+add:e on g,space on c,
+delete:e on c,space on g,
+****
+action:move e from c to h,
+preconds:space on e,space on h,e on c,
+add:e on h,space on c,
+delete:e on c,space on h,
+****
+action:move e from d to a,
+preconds:space on e,space on a,e on d,
+add:e on a,space on d,
+delete:e on d,space on a,
+****
+action:move e from d to b,
+preconds:space on e,space on b,e on d,
+add:e on b,space on d,
+delete:e on d,space on b,
+****
+action:move e from d to c,
+preconds:space on e,space on c,e on d,
+add:e on c,space on d,
+delete:e on d,space on c,
+****
+action:move e from d to f,
+preconds:space on e,space on f,e on d,
+add:e on f,space on d,
+delete:e on d,space on f,
+****
+action:move e from d to g,
+preconds:space on e,space on g,e on d,
+add:e on g,space on d,
+delete:e on d,space on g,
+****
+action:move e from d to h,
+preconds:space on e,space on h,e on d,
+add:e on h,space on d,
+delete:e on d,space on h,
+****
+action:move e from f to a,
+preconds:space on e,space on a,e on f,
+add:e on a,space on f,
+delete:e on f,space on a,
+****
+action:move e from f to b,
+preconds:space on e,space on b,e on f,
+add:e on b,space on f,
+delete:e on f,space on b,
+****
+action:move e from f to c,
+preconds:space on e,space on c,e on f,
+add:e on c,space on f,
+delete:e on f,space on c,
+****
+action:move e from f to d,
+preconds:space on e,space on d,e on f,
+add:e on d,space on f,
+delete:e on f,space on d,
+****
+action:move e from f to g,
+preconds:space on e,space on g,e on f,
+add:e on g,space on f,
+delete:e on f,space on g,
+****
+action:move e from f to h,
+preconds:space on e,space on h,e on f,
+add:e on h,space on f,
+delete:e on f,space on h,
+****
+action:move e from g to a,
+preconds:space on e,space on a,e on g,
+add:e on a,space on g,
+delete:e on g,space on a,
+****
+action:move e from g to b,
+preconds:space on e,space on b,e on g,
+add:e on b,space on g,
+delete:e on g,space on b,
+****
+action:move e from g to c,
+preconds:space on e,space on c,e on g,
+add:e on c,space on g,
+delete:e on g,space on c,
+****
+action:move e from g to d,
+preconds:space on e,space on d,e on g,
+add:e on d,space on g,
+delete:e on g,space on d,
+****
+action:move e from g to f,
+preconds:space on e,space on f,e on g,
+add:e on f,space on g,
+delete:e on g,space on f,
+****
+action:move e from g to h,
+preconds:space on e,space on h,e on g,
+add:e on h,space on g,
+delete:e on g,space on h,
+****
+action:move e from h to a,
+preconds:space on e,space on a,e on h,
+add:e on a,space on h,
+delete:e on h,space on a,
+****
+action:move e from h to b,
+preconds:space on e,space on b,e on h,
+add:e on b,space on h,
+delete:e on h,space on b,
+****
+action:move e from h to c,
+preconds:space on e,space on c,e on h,
+add:e on c,space on h,
+delete:e on h,space on c,
+****
+action:move e from h to d,
+preconds:space on e,space on d,e on h,
+add:e on d,space on h,
+delete:e on h,space on d,
+****
+action:move e from h to f,
+preconds:space on e,space on f,e on h,
+add:e on f,space on h,
+delete:e on h,space on f,
+****
+action:move e from h to g,
+preconds:space on e,space on g,e on h,
+add:e on g,space on h,
+delete:e on h,space on g,
+****
+action:move e from table to a,
+preconds:space on e,space on a,e on table,
+add:e on a,
+delete:e on table,space on a,
+****
+action:move e from table to b,
+preconds:space on e,space on b,e on table,
+add:e on b,
+delete:e on table,space on b,
+****
+action:move e from table to c,
+preconds:space on e,space on c,e on table,
+add:e on c,
+delete:e on table,space on c,
+****
+action:move e from table to d,
+preconds:space on e,space on d,e on table,
+add:e on d,
+delete:e on table,space on d,
+****
+action:move e from table to f,
+preconds:space on e,space on f,e on table,
+add:e on f,
+delete:e on table,space on f,
+****
+action:move e from table to g,
+preconds:space on e,space on g,e on table,
+add:e on g,
+delete:e on table,space on g,
+****
+action:move e from table to h,
+preconds:space on e,space on h,e on table,
+add:e on h,
+delete:e on table,space on h,
+****
+action:move e from a to table,
+preconds:space on e,space on table,e on a,
+add:e on table,space on a,
+delete:e on a,
+****
+action:move e from b to table,
+preconds:space on e,space on table,e on b,
+add:e on table,space on b,
+delete:e on b,
+****
+action:move e from c to table,
+preconds:space on e,space on table,e on c,
+add:e on table,space on c,
+delete:e on c,
+****
+action:move e from d to table,
+preconds:space on e,space on table,e on d,
+add:e on table,space on d,
+delete:e on d,
+****
+action:move e from f to table,
+preconds:space on e,space on table,e on f,
+add:e on table,space on f,
+delete:e on f,
+****
+action:move e from g to table,
+preconds:space on e,space on table,e on g,
+add:e on table,space on g,
+delete:e on g,
+****
+action:move e from h to table,
+preconds:space on e,space on table,e on h,
+add:e on table,space on h,
+delete:e on h,
+****
+action:move f from a to b,
+preconds:space on f,space on b,f on a,
+add:f on b,space on a,
+delete:f on a,space on b,
+****
+action:move f from a to c,
+preconds:space on f,space on c,f on a,
+add:f on c,space on a,
+delete:f on a,space on c,
+****
+action:move f from a to d,
+preconds:space on f,space on d,f on a,
+add:f on d,space on a,
+delete:f on a,space on d,
+****
+action:move f from a to e,
+preconds:space on f,space on e,f on a,
+add:f on e,space on a,
+delete:f on a,space on e,
+****
+action:move f from a to g,
+preconds:space on f,space on g,f on a,
+add:f on g,space on a,
+delete:f on a,space on g,
+****
+action:move f from a to h,
+preconds:space on f,space on h,f on a,
+add:f on h,space on a,
+delete:f on a,space on h,
+****
+action:move f from b to a,
+preconds:space on f,space on a,f on b,
+add:f on a,space on b,
+delete:f on b,space on a,
+****
+action:move f from b to c,
+preconds:space on f,space on c,f on b,
+add:f on c,space on b,
+delete:f on b,space on c,
+****
+action:move f from b to d,
+preconds:space on f,space on d,f on b,
+add:f on d,space on b,
+delete:f on b,space on d,
+****
+action:move f from b to e,
+preconds:space on f,space on e,f on b,
+add:f on e,space on b,
+delete:f on b,space on e,
+****
+action:move f from b to g,
+preconds:space on f,space on g,f on b,
+add:f on g,space on b,
+delete:f on b,space on g,
+****
+action:move f from b to h,
+preconds:space on f,space on h,f on b,
+add:f on h,space on b,
+delete:f on b,space on h,
+****
+action:move f from c to a,
+preconds:space on f,space on a,f on c,
+add:f on a,space on c,
+delete:f on c,space on a,
+****
+action:move f from c to b,
+preconds:space on f,space on b,f on c,
+add:f on b,space on c,
+delete:f on c,space on b,
+****
+action:move f from c to d,
+preconds:space on f,space on d,f on c,
+add:f on d,space on c,
+delete:f on c,space on d,
+****
+action:move f from c to e,
+preconds:space on f,space on e,f on c,
+add:f on e,space on c,
+delete:f on c,space on e,
+****
+action:move f from c to g,
+preconds:space on f,space on g,f on c,
+add:f on g,space on c,
+delete:f on c,space on g,
+****
+action:move f from c to h,
+preconds:space on f,space on h,f on c,
+add:f on h,space on c,
+delete:f on c,space on h,
+****
+action:move f from d to a,
+preconds:space on f,space on a,f on d,
+add:f on a,space on d,
+delete:f on d,space on a,
+****
+action:move f from d to b,
+preconds:space on f,space on b,f on d,
+add:f on b,space on d,
+delete:f on d,space on b,
+****
+action:move f from d to c,
+preconds:space on f,space on c,f on d,
+add:f on c,space on d,
+delete:f on d,space on c,
+****
+action:move f from d to e,
+preconds:space on f,space on e,f on d,
+add:f on e,space on d,
+delete:f on d,space on e,
+****
+action:move f from d to g,
+preconds:space on f,space on g,f on d,
+add:f on g,space on d,
+delete:f on d,space on g,
+****
+action:move f from d to h,
+preconds:space on f,space on h,f on d,
+add:f on h,space on d,
+delete:f on d,space on h,
+****
+action:move f from e to a,
+preconds:space on f,space on a,f on e,
+add:f on a,space on e,
+delete:f on e,space on a,
+****
+action:move f from e to b,
+preconds:space on f,space on b,f on e,
+add:f on b,space on e,
+delete:f on e,space on b,
+****
+action:move f from e to c,
+preconds:space on f,space on c,f on e,
+add:f on c,space on e,
+delete:f on e,space on c,
+****
+action:move f from e to d,
+preconds:space on f,space on d,f on e,
+add:f on d,space on e,
+delete:f on e,space on d,
+****
+action:move f from e to g,
+preconds:space on f,space on g,f on e,
+add:f on g,space on e,
+delete:f on e,space on g,
+****
+action:move f from e to h,
+preconds:space on f,space on h,f on e,
+add:f on h,space on e,
+delete:f on e,space on h,
+****
+action:move f from g to a,
+preconds:space on f,space on a,f on g,
+add:f on a,space on g,
+delete:f on g,space on a,
+****
+action:move f from g to b,
+preconds:space on f,space on b,f on g,
+add:f on b,space on g,
+delete:f on g,space on b,
+****
+action:move f from g to c,
+preconds:space on f,space on c,f on g,
+add:f on c,space on g,
+delete:f on g,space on c,
+****
+action:move f from g to d,
+preconds:space on f,space on d,f on g,
+add:f on d,space on g,
+delete:f on g,space on d,
+****
+action:move f from g to e,
+preconds:space on f,space on e,f on g,
+add:f on e,space on g,
+delete:f on g,space on e,
+****
+action:move f from g to h,
+preconds:space on f,space on h,f on g,
+add:f on h,space on g,
+delete:f on g,space on h,
+****
+action:move f from h to a,
+preconds:space on f,space on a,f on h,
+add:f on a,space on h,
+delete:f on h,space on a,
+****
+action:move f from h to b,
+preconds:space on f,space on b,f on h,
+add:f on b,space on h,
+delete:f on h,space on b,
+****
+action:move f from h to c,
+preconds:space on f,space on c,f on h,
+add:f on c,space on h,
+delete:f on h,space on c,
+****
+action:move f from h to d,
+preconds:space on f,space on d,f on h,
+add:f on d,space on h,
+delete:f on h,space on d,
+****
+action:move f from h to e,
+preconds:space on f,space on e,f on h,
+add:f on e,space on h,
+delete:f on h,space on e,
+****
+action:move f from h to g,
+preconds:space on f,space on g,f on h,
+add:f on g,space on h,
+delete:f on h,space on g,
+****
+action:move f from table to a,
+preconds:space on f,space on a,f on table,
+add:f on a,
+delete:f on table,space on a,
+****
+action:move f from table to b,
+preconds:space on f,space on b,f on table,
+add:f on b,
+delete:f on table,space on b,
+****
+action:move f from table to c,
+preconds:space on f,space on c,f on table,
+add:f on c,
+delete:f on table,space on c,
+****
+action:move f from table to d,
+preconds:space on f,space on d,f on table,
+add:f on d,
+delete:f on table,space on d,
+****
+action:move f from table to e,
+preconds:space on f,space on e,f on table,
+add:f on e,
+delete:f on table,space on e,
+****
+action:move f from table to g,
+preconds:space on f,space on g,f on table,
+add:f on g,
+delete:f on table,space on g,
+****
+action:move f from table to h,
+preconds:space on f,space on h,f on table,
+add:f on h,
+delete:f on table,space on h,
+****
+action:move f from a to table,
+preconds:space on f,space on table,f on a,
+add:f on table,space on a,
+delete:f on a,
+****
+action:move f from b to table,
+preconds:space on f,space on table,f on b,
+add:f on table,space on b,
+delete:f on b,
+****
+action:move f from c to table,
+preconds:space on f,space on table,f on c,
+add:f on table,space on c,
+delete:f on c,
+****
+action:move f from d to table,
+preconds:space on f,space on table,f on d,
+add:f on table,space on d,
+delete:f on d,
+****
+action:move f from e to table,
+preconds:space on f,space on table,f on e,
+add:f on table,space on e,
+delete:f on e,
+****
+action:move f from g to table,
+preconds:space on f,space on table,f on g,
+add:f on table,space on g,
+delete:f on g,
+****
+action:move f from h to table,
+preconds:space on f,space on table,f on h,
+add:f on table,space on h,
+delete:f on h,
+****
+action:move g from a to b,
+preconds:space on g,space on b,g on a,
+add:g on b,space on a,
+delete:g on a,space on b,
+****
+action:move g from a to c,
+preconds:space on g,space on c,g on a,
+add:g on c,space on a,
+delete:g on a,space on c,
+****
+action:move g from a to d,
+preconds:space on g,space on d,g on a,
+add:g on d,space on a,
+delete:g on a,space on d,
+****
+action:move g from a to e,
+preconds:space on g,space on e,g on a,
+add:g on e,space on a,
+delete:g on a,space on e,
+****
+action:move g from a to f,
+preconds:space on g,space on f,g on a,
+add:g on f,space on a,
+delete:g on a,space on f,
+****
+action:move g from a to h,
+preconds:space on g,space on h,g on a,
+add:g on h,space on a,
+delete:g on a,space on h,
+****
+action:move g from b to a,
+preconds:space on g,space on a,g on b,
+add:g on a,space on b,
+delete:g on b,space on a,
+****
+action:move g from b to c,
+preconds:space on g,space on c,g on b,
+add:g on c,space on b,
+delete:g on b,space on c,
+****
+action:move g from b to d,
+preconds:space on g,space on d,g on b,
+add:g on d,space on b,
+delete:g on b,space on d,
+****
+action:move g from b to e,
+preconds:space on g,space on e,g on b,
+add:g on e,space on b,
+delete:g on b,space on e,
+****
+action:move g from b to f,
+preconds:space on g,space on f,g on b,
+add:g on f,space on b,
+delete:g on b,space on f,
+****
+action:move g from b to h,
+preconds:space on g,space on h,g on b,
+add:g on h,space on b,
+delete:g on b,space on h,
+****
+action:move g from c to a,
+preconds:space on g,space on a,g on c,
+add:g on a,space on c,
+delete:g on c,space on a,
+****
+action:move g from c to b,
+preconds:space on g,space on b,g on c,
+add:g on b,space on c,
+delete:g on c,space on b,
+****
+action:move g from c to d,
+preconds:space on g,space on d,g on c,
+add:g on d,space on c,
+delete:g on c,space on d,
+****
+action:move g from c to e,
+preconds:space on g,space on e,g on c,
+add:g on e,space on c,
+delete:g on c,space on e,
+****
+action:move g from c to f,
+preconds:space on g,space on f,g on c,
+add:g on f,space on c,
+delete:g on c,space on f,
+****
+action:move g from c to h,
+preconds:space on g,space on h,g on c,
+add:g on h,space on c,
+delete:g on c,space on h,
+****
+action:move g from d to a,
+preconds:space on g,space on a,g on d,
+add:g on a,space on d,
+delete:g on d,space on a,
+****
+action:move g from d to b,
+preconds:space on g,space on b,g on d,
+add:g on b,space on d,
+delete:g on d,space on b,
+****
+action:move g from d to c,
+preconds:space on g,space on c,g on d,
+add:g on c,space on d,
+delete:g on d,space on c,
+****
+action:move g from d to e,
+preconds:space on g,space on e,g on d,
+add:g on e,space on d,
+delete:g on d,space on e,
+****
+action:move g from d to f,
+preconds:space on g,space on f,g on d,
+add:g on f,space on d,
+delete:g on d,space on f,
+****
+action:move g from d to h,
+preconds:space on g,space on h,g on d,
+add:g on h,space on d,
+delete:g on d,space on h,
+****
+action:move g from e to a,
+preconds:space on g,space on a,g on e,
+add:g on a,space on e,
+delete:g on e,space on a,
+****
+action:move g from e to b,
+preconds:space on g,space on b,g on e,
+add:g on b,space on e,
+delete:g on e,space on b,
+****
+action:move g from e to c,
+preconds:space on g,space on c,g on e,
+add:g on c,space on e,
+delete:g on e,space on c,
+****
+action:move g from e to d,
+preconds:space on g,space on d,g on e,
+add:g on d,space on e,
+delete:g on e,space on d,
+****
+action:move g from e to f,
+preconds:space on g,space on f,g on e,
+add:g on f,space on e,
+delete:g on e,space on f,
+****
+action:move g from e to h,
+preconds:space on g,space on h,g on e,
+add:g on h,space on e,
+delete:g on e,space on h,
+****
+action:move g from f to a,
+preconds:space on g,space on a,g on f,
+add:g on a,space on f,
+delete:g on f,space on a,
+****
+action:move g from f to b,
+preconds:space on g,space on b,g on f,
+add:g on b,space on f,
+delete:g on f,space on b,
+****
+action:move g from f to c,
+preconds:space on g,space on c,g on f,
+add:g on c,space on f,
+delete:g on f,space on c,
+****
+action:move g from f to d,
+preconds:space on g,space on d,g on f,
+add:g on d,space on f,
+delete:g on f,space on d,
+****
+action:move g from f to e,
+preconds:space on g,space on e,g on f,
+add:g on e,space on f,
+delete:g on f,space on e,
+****
+action:move g from f to h,
+preconds:space on g,space on h,g on f,
+add:g on h,space on f,
+delete:g on f,space on h,
+****
+action:move g from h to a,
+preconds:space on g,space on a,g on h,
+add:g on a,space on h,
+delete:g on h,space on a,
+****
+action:move g from h to b,
+preconds:space on g,space on b,g on h,
+add:g on b,space on h,
+delete:g on h,space on b,
+****
+action:move g from h to c,
+preconds:space on g,space on c,g on h,
+add:g on c,space on h,
+delete:g on h,space on c,
+****
+action:move g from h to d,
+preconds:space on g,space on d,g on h,
+add:g on d,space on h,
+delete:g on h,space on d,
+****
+action:move g from h to e,
+preconds:space on g,space on e,g on h,
+add:g on e,space on h,
+delete:g on h,space on e,
+****
+action:move g from h to f,
+preconds:space on g,space on f,g on h,
+add:g on f,space on h,
+delete:g on h,space on f,
+****
+action:move g from table to a,
+preconds:space on g,space on a,g on table,
+add:g on a,
+delete:g on table,space on a,
+****
+action:move g from table to b,
+preconds:space on g,space on b,g on table,
+add:g on b,
+delete:g on table,space on b,
+****
+action:move g from table to c,
+preconds:space on g,space on c,g on table,
+add:g on c,
+delete:g on table,space on c,
+****
+action:move g from table to d,
+preconds:space on g,space on d,g on table,
+add:g on d,
+delete:g on table,space on d,
+****
+action:move g from table to e,
+preconds:space on g,space on e,g on table,
+add:g on e,
+delete:g on table,space on e,
+****
+action:move g from table to f,
+preconds:space on g,space on f,g on table,
+add:g on f,
+delete:g on table,space on f,
+****
+action:move g from table to h,
+preconds:space on g,space on h,g on table,
+add:g on h,
+delete:g on table,space on h,
+****
+action:move g from a to table,
+preconds:space on g,space on table,g on a,
+add:g on table,space on a,
+delete:g on a,
+****
+action:move g from b to table,
+preconds:space on g,space on table,g on b,
+add:g on table,space on b,
+delete:g on b,
+****
+action:move g from c to table,
+preconds:space on g,space on table,g on c,
+add:g on table,space on c,
+delete:g on c,
+****
+action:move g from d to table,
+preconds:space on g,space on table,g on d,
+add:g on table,space on d,
+delete:g on d,
+****
+action:move g from e to table,
+preconds:space on g,space on table,g on e,
+add:g on table,space on e,
+delete:g on e,
+****
+action:move g from f to table,
+preconds:space on g,space on table,g on f,
+add:g on table,space on f,
+delete:g on f,
+****
+action:move g from h to table,
+preconds:space on g,space on table,g on h,
+add:g on table,space on h,
+delete:g on h,
+****
+action:move h from a to b,
+preconds:space on h,space on b,h on a,
+add:h on b,space on a,
+delete:h on a,space on b,
+****
+action:move h from a to c,
+preconds:space on h,space on c,h on a,
+add:h on c,space on a,
+delete:h on a,space on c,
+****
+action:move h from a to d,
+preconds:space on h,space on d,h on a,
+add:h on d,space on a,
+delete:h on a,space on d,
+****
+action:move h from a to e,
+preconds:space on h,space on e,h on a,
+add:h on e,space on a,
+delete:h on a,space on e,
+****
+action:move h from a to f,
+preconds:space on h,space on f,h on a,
+add:h on f,space on a,
+delete:h on a,space on f,
+****
+action:move h from a to g,
+preconds:space on h,space on g,h on a,
+add:h on g,space on a,
+delete:h on a,space on g,
+****
+action:move h from b to a,
+preconds:space on h,space on a,h on b,
+add:h on a,space on b,
+delete:h on b,space on a,
+****
+action:move h from b to c,
+preconds:space on h,space on c,h on b,
+add:h on c,space on b,
+delete:h on b,space on c,
+****
+action:move h from b to d,
+preconds:space on h,space on d,h on b,
+add:h on d,space on b,
+delete:h on b,space on d,
+****
+action:move h from b to e,
+preconds:space on h,space on e,h on b,
+add:h on e,space on b,
+delete:h on b,space on e,
+****
+action:move h from b to f,
+preconds:space on h,space on f,h on b,
+add:h on f,space on b,
+delete:h on b,space on f,
+****
+action:move h from b to g,
+preconds:space on h,space on g,h on b,
+add:h on g,space on b,
+delete:h on b,space on g,
+****
+action:move h from c to a,
+preconds:space on h,space on a,h on c,
+add:h on a,space on c,
+delete:h on c,space on a,
+****
+action:move h from c to b,
+preconds:space on h,space on b,h on c,
+add:h on b,space on c,
+delete:h on c,space on b,
+****
+action:move h from c to d,
+preconds:space on h,space on d,h on c,
+add:h on d,space on c,
+delete:h on c,space on d,
+****
+action:move h from c to e,
+preconds:space on h,space on e,h on c,
+add:h on e,space on c,
+delete:h on c,space on e,
+****
+action:move h from c to f,
+preconds:space on h,space on f,h on c,
+add:h on f,space on c,
+delete:h on c,space on f,
+****
+action:move h from c to g,
+preconds:space on h,space on g,h on c,
+add:h on g,space on c,
+delete:h on c,space on g,
+****
+action:move h from d to a,
+preconds:space on h,space on a,h on d,
+add:h on a,space on d,
+delete:h on d,space on a,
+****
+action:move h from d to b,
+preconds:space on h,space on b,h on d,
+add:h on b,space on d,
+delete:h on d,space on b,
+****
+action:move h from d to c,
+preconds:space on h,space on c,h on d,
+add:h on c,space on d,
+delete:h on d,space on c,
+****
+action:move h from d to e,
+preconds:space on h,space on e,h on d,
+add:h on e,space on d,
+delete:h on d,space on e,
+****
+action:move h from d to f,
+preconds:space on h,space on f,h on d,
+add:h on f,space on d,
+delete:h on d,space on f,
+****
+action:move h from d to g,
+preconds:space on h,space on g,h on d,
+add:h on g,space on d,
+delete:h on d,space on g,
+****
+action:move h from e to a,
+preconds:space on h,space on a,h on e,
+add:h on a,space on e,
+delete:h on e,space on a,
+****
+action:move h from e to b,
+preconds:space on h,space on b,h on e,
+add:h on b,space on e,
+delete:h on e,space on b,
+****
+action:move h from e to c,
+preconds:space on h,space on c,h on e,
+add:h on c,space on e,
+delete:h on e,space on c,
+****
+action:move h from e to d,
+preconds:space on h,space on d,h on e,
+add:h on d,space on e,
+delete:h on e,space on d,
+****
+action:move h from e to f,
+preconds:space on h,space on f,h on e,
+add:h on f,space on e,
+delete:h on e,space on f,
+****
+action:move h from e to g,
+preconds:space on h,space on g,h on e,
+add:h on g,space on e,
+delete:h on e,space on g,
+****
+action:move h from f to a,
+preconds:space on h,space on a,h on f,
+add:h on a,space on f,
+delete:h on f,space on a,
+****
+action:move h from f to b,
+preconds:space on h,space on b,h on f,
+add:h on b,space on f,
+delete:h on f,space on b,
+****
+action:move h from f to c,
+preconds:space on h,space on c,h on f,
+add:h on c,space on f,
+delete:h on f,space on c,
+****
+action:move h from f to d,
+preconds:space on h,space on d,h on f,
+add:h on d,space on f,
+delete:h on f,space on d,
+****
+action:move h from f to e,
+preconds:space on h,space on e,h on f,
+add:h on e,space on f,
+delete:h on f,space on e,
+****
+action:move h from f to g,
+preconds:space on h,space on g,h on f,
+add:h on g,space on f,
+delete:h on f,space on g,
+****
+action:move h from g to a,
+preconds:space on h,space on a,h on g,
+add:h on a,space on g,
+delete:h on g,space on a,
+****
+action:move h from g to b,
+preconds:space on h,space on b,h on g,
+add:h on b,space on g,
+delete:h on g,space on b,
+****
+action:move h from g to c,
+preconds:space on h,space on c,h on g,
+add:h on c,space on g,
+delete:h on g,space on c,
+****
+action:move h from g to d,
+preconds:space on h,space on d,h on g,
+add:h on d,space on g,
+delete:h on g,space on d,
+****
+action:move h from g to e,
+preconds:space on h,space on e,h on g,
+add:h on e,space on g,
+delete:h on g,space on e,
+****
+action:move h from g to f,
+preconds:space on h,space on f,h on g,
+add:h on f,space on g,
+delete:h on g,space on f,
+****
+action:move h from table to a,
+preconds:space on h,space on a,h on table,
+add:h on a,
+delete:h on table,space on a,
+****
+action:move h from table to b,
+preconds:space on h,space on b,h on table,
+add:h on b,
+delete:h on table,space on b,
+****
+action:move h from table to c,
+preconds:space on h,space on c,h on table,
+add:h on c,
+delete:h on table,space on c,
+****
+action:move h from table to d,
+preconds:space on h,space on d,h on table,
+add:h on d,
+delete:h on table,space on d,
+****
+action:move h from table to e,
+preconds:space on h,space on e,h on table,
+add:h on e,
+delete:h on table,space on e,
+****
+action:move h from table to f,
+preconds:space on h,space on f,h on table,
+add:h on f,
+delete:h on table,space on f,
+****
+action:move h from table to g,
+preconds:space on h,space on g,h on table,
+add:h on g,
+delete:h on table,space on g,
+****
+action:move h from a to table,
+preconds:space on h,space on table,h on a,
+add:h on table,space on a,
+delete:h on a,
+****
+action:move h from b to table,
+preconds:space on h,space on table,h on b,
+add:h on table,space on b,
+delete:h on b,
+****
+action:move h from c to table,
+preconds:space on h,space on table,h on c,
+add:h on table,space on c,
+delete:h on c,
+****
+action:move h from d to table,
+preconds:space on h,space on table,h on d,
+add:h on table,space on d,
+delete:h on d,
+****
+action:move h from e to table,
+preconds:space on h,space on table,h on e,
+add:h on table,space on e,
+delete:h on e,
+****
+action:move h from f to table,
+preconds:space on h,space on table,h on f,
+add:h on table,space on f,
+delete:h on f,
+****
+action:move h from g to table,
+preconds:space on h,space on table,h on g,
+add:h on table,space on g,
+delete:h on g,
