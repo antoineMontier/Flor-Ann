@@ -10,7 +10,7 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #include <stdio.h>
 
 #define MAX_LINE_LENGTH 256
-#define FILE_LINES 242
+#define FILE_LINES 82
 #define NB_MAX_CONDS 100
 
 #define ACTION (-1024)
@@ -68,11 +68,17 @@ void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini
 int main(){
     
     char** fichier;
-    fichier = lecture("4blocs.txt");
+    fichier = lecture("riviere.txt");
+
+    for(int i = 0 ; i < FILE_LINES ; ++i)
+        printf("%s\n", fichier[i]);
 
     Cond start, finish;
     parse_cond(fichier[0], &start);
     parse_cond(fichier[1], &finish);
+
+    print_cond(start);
+    print_cond(finish);
 
     // afficher finish et start
 
@@ -86,7 +92,9 @@ int main(){
     Signe test[FILE_LINES/5];
     to_signes(fichier, test);
 
-    resoudre_fute(test, start, finish);
+    print_signes(test, FILE_LINES/5);
+
+    //resoudre_fute(test, start, finish);
 
 
     return 0;
