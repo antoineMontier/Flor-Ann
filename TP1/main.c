@@ -10,7 +10,7 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #include <stdio.h>
 
 #define MAX_LINE_LENGTH 256
-#define FILE_LINES 82
+#define FILE_LINES 242
 #define NB_MAX_CONDS 100
 
 #define ACTION (-1024)
@@ -68,17 +68,14 @@ void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini
 int main(){
     
     char** fichier;
-    fichier = lecture("riviere.txt");
+    fichier = lecture("4blocs.txt");
 
-    for(int i = 0 ; i < FILE_LINES ; ++i)
-        printf("%s\n", fichier[i]);
+
 
     Cond start, finish;
     parse_cond(fichier[0], &start);
     parse_cond(fichier[1], &finish);
 
-    print_cond(start);
-    print_cond(finish);
 
     // afficher finish et start
 
@@ -92,9 +89,8 @@ int main(){
     Signe test[FILE_LINES/5];
     to_signes(fichier, test);
 
-    print_signes(test, FILE_LINES/5);
 
-    //resoudre_fute(test, start, finish);
+    resoudre_fute(test, start, finish);
 
 
     return 0;
@@ -128,11 +124,15 @@ void copie_cond(Cond *dest, Cond src){
 
 void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]){
     //conditions d'arret : 
-    
     if(*fini == 1){
         printf("solution trouvée par une autre rec, je m'arrete\n");
         return;
     }
+    // affichage : 
+    printf("\n\nMon etat : \n");
+    print_cond(etat);
+    printf("\n\nMon finish : \n");
+    print_cond(finish);
     if(precond_statisfait(finish, etat)){
         printf("solution trouvée mon etat : \n");
         print_cond(etat);
@@ -140,9 +140,12 @@ void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini
         return;
     }
 
-    // affichage : 
-    printf("\n\nMon etat : \n");
-    print_cond(etat);
+    // nb actions possibles
+    int nb_actions = 0;
+    for(int i = 0 ; i < FILE_LINES/5 ; ++i)
+        if(actions_prises[i] == 1)
+            nb_actions++;
+    printf("nb actions = %d\n", nb_actions);
 
 
     // connaitre tous les preconds faisables : 
