@@ -11,7 +11,7 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #include <time.h>
 
 #define MAX_LINE_LENGTH 256
-#define FILE_LINES 92
+#define FILE_LINES 242
 #define NB_MAX_CONDS 20
 
 #define ACTION (-1024)
@@ -70,7 +70,7 @@ void resoudre_fute_aleatoire(Signe act[FILE_LINES/5], Cond start, Cond finish);
 int main(){
     
     char** fichier;
-    fichier = lecture("3blocs.txt");
+    fichier = lecture("4blocs.txt");
 
 
 
@@ -92,7 +92,8 @@ int main(){
     to_signes(fichier, test);
 
     printf("avant fonction\n");
-    resoudre_fute_aleatoire(test, start, finish);
+    // print_signes(test, FILE_LINES/5);
+    resoudre_fute(test, start, finish);
 
 
     return 0;
@@ -124,11 +125,11 @@ void resoudre_fute_alea_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int
     // affichage : 
     printf("\n\nMy state : \n");
     // nb actions possibles
-    int nb_actions = 0;
+    /*int nb_actions = 0;
     for(int i = 0 ; i < FILE_LINES/5 ; ++i)
         if(actions_prises[i] == 1)
             nb_actions++;
-    printf("\tnb actions = %d / %d\n", nb_actions, FILE_LINES / 4);
+    printf("\tnb actions = %d / %d\n", nb_actions, FILE_LINES / 4);*/
 
     print_cond(etat);
     //conditions d'arret : 
@@ -154,7 +155,7 @@ void resoudre_fute_alea_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int
     // creer un tableau de nombres aleatoires : 
     int indices_aleatoires[FILE_LINES/5], tmp;
     for(int i=0; i<FILE_LINES / 5 ; ++i) indices_aleatoires[i] = 0;
-    srand(time(NULL)*nb_actions);
+    srand(time(NULL));
     for(int i=1 ; i < FILE_LINES / 5 ; ++i){
         do{
             tmp = rand() % (FILE_LINES / 5);
@@ -209,16 +210,16 @@ void copie_cond(Cond *dest, Cond src){
 
 void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]){
     // affichage : 
-    printf("\n\nMon etat : \n");
+    // printf("\n\nMon etat : \n");
     // nb actions possibles
     int nb_actions = 0;
     for(int i = 0 ; i < FILE_LINES/5 ; ++i)
         if(actions_prises[i] == 1)
             nb_actions++;
-    printf("\tnb actions = %d / %d\n", nb_actions, FILE_LINES / 4);
+    printf("%d ", nb_actions, FILE_LINES / 5);
 
-    print_cond(etat);
-    //conditions d'arret : 
+    // print_cond(etat);
+    // conditions d'arret : 
     if(*fini == 1){
         printf("solution trouvée par une autre rec, je m'arrete\n");
         return;
