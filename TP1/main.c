@@ -8,10 +8,11 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <time.h>
 
 #define MAX_LINE_LENGTH 256
-#define FILE_LINES 242
-#define NB_MAX_CONDS 100
+#define FILE_LINES 92
+#define NB_MAX_CONDS 20
 
 #define ACTION (-1024)
 #define PRECOND (-1025)
@@ -62,13 +63,14 @@ void resoudre_fute(Signe act[FILE_LINES/5], Cond start, Cond finish);
 void quels_preconds(Signe act[FILE_LINES/5], Cond etat, int tableau_de_verite[FILE_LINES/5]);
 void copie_cond(Cond *dest, Cond src);
 void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]);
-
+void resoudre_fute_alea_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]);
+void resoudre_fute_aleatoire(Signe act[FILE_LINES/5], Cond start, Cond finish);
 
 
 int main(){
     
     char** fichier;
-    fichier = lecture("4blocs.txt");
+    fichier = lecture("3blocs.txt");
 
 
 
@@ -89,8 +91,8 @@ int main(){
     Signe test[FILE_LINES/5];
     to_signes(fichier, test);
 
-
-    resoudre_fute(test, start, finish);
+    printf("avant fonction\n");
+    resoudre_fute_aleatoire(test, start, finish);
 
 
     return 0;
@@ -105,6 +107,88 @@ void quels_preconds(Signe act[FILE_LINES/5], Cond etat, int tableau_de_verite[FI
             tableau_de_verite[i] = 0;
 }
 
+void resoudre_fute_aleatoire(Signe act[FILE_LINES/5], Cond start, Cond finish){
+    int fini = 0;
+    int action[FILE_LINES/5];
+    for(int i=0; i<FILE_LINES/5 ; ++i) action[i] = 0;
+    resoudre_fute_alea_rec(act, start, finish, &fini, action);
+}
+
+int dans_tableau(int tab[FILE_LINES/5], int element){
+    for(int i = 0; i < FILE_LINES/5 ; ++i)
+        if(tab[i] == element) return 1;
+    return 0;
+}
+
+void resoudre_fute_alea_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]){
+    // affichage : 
+    printf("\n\nMy state : \n");
+    // nb actions possibles
+    int nb_actions = 0;
+    for(int i = 0 ; i < FILE_LINES/5 ; ++i)
+        if(actions_prises[i] == 1)
+            nb_actions++;
+    printf("\tnb actions = %d / %d\n", nb_actions, FILE_LINES / 4);
+
+    print_cond(etat);
+    //conditions d'arret : 
+    if(*fini == 1){
+        printf("solution trouvée par une autre rec, je m'arrete\n");
+        return;
+    }
+
+    if(precond_statisfait(finish, etat)){
+        printf("SOLUTION TROUVEE\n");
+        *fini = 1;
+        return;
+    }
+
+    // connaitre tous les preconds faisables : 
+    int tab_verite[FILE_LINES/5];
+
+    if(act == NULL || etat.nb_cond == 0 || tab_verite == NULL){
+        printf("erreur, arguments nuls\n");
+        return;
+    }
+    printf("avant creation tableau aleatoire\n");
+    // creer un tableau de nombres aleatoires : 
+    int indices_aleatoires[FILE_LINES/5], tmp;
+    for(int i=0; i<FILE_LINES / 5 ; ++i) indices_aleatoires[i] = 0;
+    srand(time(NULL)*nb_actions);
+    for(int i=1 ; i < FILE_LINES / 5 ; ++i){
+        do{
+            tmp = rand() % (FILE_LINES / 5);
+        }while(dans_tableau(indices_aleatoires, tmp));
+        indices_aleatoires[i] = tmp;
+        printf("|%d", tmp);
+    }
+    printf("|\n");
+
+
+    quels_preconds(act, etat, tab_verite);
+
+    // tableau de vérité rempli : 
+    for(int action_id = 0; action_id < FILE_LINES/5 ; ++action_id){
+        int action = indices_aleatoires[action_id];
+        if(tab_verite[action] && actions_prises[action] == 0){
+            // option1 : on retire le delete et on ajoute le add, on lance la recursivité avec l'etat, puis on retire le add qu'on a ajoute et on remet le delete pour lancer la rec sur la deuxieme solution possi
+            // option2 : creer un nouvel etat pour chaque action, lancer la recursivite avec le nouvel etat auquel on aura retiré les delete et ajoute les add
+            Cond nv_etat;
+            copie_cond(&nv_etat, etat);
+            // suppression des delete dans nv_etat
+            supprimer_cond(act[action].delete, &nv_etat);
+
+            // ajout des add
+            ajouter_add(act[action].add, &nv_etat);
+
+            int actions[FILE_LINES/5];
+            for(int i=0; i<FILE_LINES/5 ; ++i) actions[i] = actions_prises[i];
+            actions[action] = 1;
+            resoudre_fute_alea_rec(act, nv_etat, finish, fini, actions);
+        }
+    }
+}
+
 
 
 void resoudre_fute(Signe act[FILE_LINES/5], Cond start, Cond finish){
@@ -115,6 +199,7 @@ void resoudre_fute(Signe act[FILE_LINES/5], Cond start, Cond finish){
 }
 
 void copie_cond(Cond *dest, Cond src){
+    if(dest == NULL || src.nb_cond == 0) return;
     dest->nb_cond = src.nb_cond;
     dest->type = src.type;
     for(int i = 0 ; i < NB_MAX_CONDS ; i++)
@@ -123,33 +208,34 @@ void copie_cond(Cond *dest, Cond src){
 
 
 void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]){
-    //conditions d'arret : 
-    if(*fini == 1){
-        printf("solution trouvée par une autre rec, je m'arrete\n");
-        return;
-    }
     // affichage : 
     printf("\n\nMon etat : \n");
-    print_cond(etat);
-    printf("\n\nMon finish : \n");
-    print_cond(finish);
-    if(precond_statisfait(finish, etat)){
-        printf("solution trouvée mon etat : \n");
-        print_cond(etat);
-        *fini = 1;
-        return;
-    }
-
     // nb actions possibles
     int nb_actions = 0;
     for(int i = 0 ; i < FILE_LINES/5 ; ++i)
         if(actions_prises[i] == 1)
             nb_actions++;
-    printf("nb actions = %d\n", nb_actions);
+    printf("\tnb actions = %d / %d\n", nb_actions, FILE_LINES / 4);
 
+    print_cond(etat);
+    //conditions d'arret : 
+    if(*fini == 1){
+        printf("solution trouvée par une autre rec, je m'arrete\n");
+        return;
+    }
+
+    if(precond_statisfait(finish, etat)){
+        printf("SOLUTION TROUVEE\n");
+        *fini = 1;
+        return;
+    }
 
     // connaitre tous les preconds faisables : 
     int tab_verite[FILE_LINES/5];
+    if(act == NULL || etat.nb_cond == 0 || tab_verite == NULL){
+        printf("erreur, arguments nuls\n");
+        return;
+    }
     quels_preconds(act, etat, tab_verite);
     // tableau de vérité rempli : 
     for(int action = 0; action < FILE_LINES/5 ; ++action){
@@ -171,29 +257,6 @@ void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -240,6 +303,7 @@ void to_signes(char**fichier, Signe s[FILE_LINES/5]){
  * fonction pour afficher les propositions enregistrées dans un tableau de signes de taille signe_size
 */
 void print_signes(Signe *s, int signe_size){
+    if(s == NULL) return;
     for(int i = 0 ; i < signe_size ; i++){
         printf("=============== SIGNE i = %d\n", i);
         for(int j = 0 ; j  < s[i].add.nb_cond ; j++)
@@ -258,7 +322,7 @@ void print_signes(Signe *s, int signe_size){
 
 
 int proposition_dans_cond(char *s, Cond test){
-    if(s == NULL) return 0;
+    if(s == NULL || test.nb_cond == 0) return 0;
     for(int i = 0 ; i < test.nb_cond ; i++)
         if(strcmp(s, test.cond[i]) == 0) return 1;
     return 0;
@@ -278,7 +342,7 @@ int precond_statisfait(Cond precond, Cond etat){
 
 
 void supprimer_cond(Cond delete, Cond *etat){
-    if(delete.nb_cond == 0) return;
+    if(etat == NULL || delete.nb_cond == 0) return;
     Cond nv_etat;
     nv_etat.type = etat->type;
     int indice_remplissage = 0;
@@ -295,6 +359,7 @@ void supprimer_cond(Cond delete, Cond *etat){
 
 
 void ajouter_add(Cond add, Cond *etat){
+    if(etat == NULL || add.nb_cond == 0) return;
     for(int i=0; i< add.nb_cond; i++){
         if(!proposition_dans_cond(add.cond[i], *etat)){
             strcpy(etat->cond[etat->nb_cond], add.cond[i]);
@@ -367,6 +432,10 @@ Objectif de fonction : à partir des ':' et entre chaque ',' mettre la chaine de
 preconds:car needs battery,shop knows problem,shop has money,
 */
 void parse_cond(char* chaine, Cond *c){
+    if(c == NULL){ 
+        printf("condition nulle\n");
+        return;
+    }
     c->nb_cond = 0;
     if(chaine == NULL || chaine[0]== '\0')return;
     int indice_case_courante = 0;
