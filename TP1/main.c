@@ -11,7 +11,7 @@ il y a aussi un nb_cond qui correspond lui au nombre de lignes pour stocker le c
 #include <time.h>
 
 #define MAX_LINE_LENGTH 256
-#define FILE_LINES 242
+#define FILE_LINES 92
 #define NB_MAX_CONDS 20
 
 #define ACTION (-1024)
@@ -70,7 +70,7 @@ void resoudre_fute_aleatoire(Signe act[FILE_LINES/5], Cond start, Cond finish);
 int main(){
     
     char** fichier;
-    fichier = lecture("4blocs.txt");
+    fichier = lecture("3blocs.txt");
 
 
 
@@ -93,13 +93,16 @@ int main(){
 
     printf("avant fonction\n");
     // print_signes(test, FILE_LINES/5);
-    resoudre_fute(test, start, finish);
+    resoudre_fute_aleatoire(test, start, finish);
 
 
     return 0;
 }
 
-
+/**
+ * remplis un tableau de vérité avec cette règle : 1 si l'action est faisable, 0 sinon
+ * en connaissant les action et l'etat
+*/
 void quels_preconds(Signe act[FILE_LINES/5], Cond etat, int tableau_de_verite[FILE_LINES/5]){
     for(int i=0; i < FILE_LINES/5 ; ++i)
         if(precond_statisfait(act[i].preconds, etat))
@@ -108,6 +111,9 @@ void quels_preconds(Signe act[FILE_LINES/5], Cond etat, int tableau_de_verite[FI
             tableau_de_verite[i] = 0;
 }
 
+/**
+ * lanceur de recusivité version aléatoire
+*/
 void resoudre_fute_aleatoire(Signe act[FILE_LINES/5], Cond start, Cond finish){
     int fini = 0;
     int action[FILE_LINES/5];
@@ -115,12 +121,18 @@ void resoudre_fute_aleatoire(Signe act[FILE_LINES/5], Cond start, Cond finish){
     resoudre_fute_alea_rec(act, start, finish, &fini, action);
 }
 
+/**
+ * renvoies 1 si l'element est dans le tableau, 0 sinon
+*/
 int dans_tableau(int tab[FILE_LINES/5], int element){
     for(int i = 0; i < FILE_LINES/5 ; ++i)
         if(tab[i] == element) return 1;
     return 0;
 }
 
+/**
+ * fonction de resolution recursive utilisant le backtraking, avec des choix aléatoires
+*/
 void resoudre_fute_alea_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]){
     // affichage : 
     printf("\n\nMy state : \n");
@@ -191,7 +203,9 @@ void resoudre_fute_alea_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int
 }
 
 
-
+/**
+ * lanceur de recusivité
+*/
 void resoudre_fute(Signe act[FILE_LINES/5], Cond start, Cond finish){
     int fini = 0;
     int action[FILE_LINES/5];
@@ -199,6 +213,9 @@ void resoudre_fute(Signe act[FILE_LINES/5], Cond start, Cond finish){
     resoudre_fute_rec(act, start, finish, &fini,action);
 }
 
+/**
+ * Copies une condition 
+*/
 void copie_cond(Cond *dest, Cond src){
     if(dest == NULL || src.nb_cond == 0) return;
     dest->nb_cond = src.nb_cond;
@@ -207,7 +224,9 @@ void copie_cond(Cond *dest, Cond src){
         strcpy(dest->cond[i], src.cond[i]);
 }
 
-
+/**
+ * fonction de resolution recursive utilisant le backtraking
+*/
 void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini, int actions_prises[FILE_LINES/5]){
     // affichage : 
     // printf("\n\nMon etat : \n");
@@ -216,7 +235,7 @@ void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini
     for(int i = 0 ; i < FILE_LINES/5 ; ++i)
         if(actions_prises[i] == 1)
             nb_actions++;
-    printf("%d ", nb_actions, FILE_LINES / 5);
+    printf("%d ", nb_actions);
 
     // print_cond(etat);
     // conditions d'arret : 
@@ -262,24 +281,9 @@ void resoudre_fute_rec(Signe act[FILE_LINES/5], Cond etat, Cond finish, int*fini
 
 
 
-
-
-
-
-
-/*
-// initialisation des faits courants, du but et des règles en les chargeant depuis un fichier
-tantque (les faits courants ne contiennent pas tous les faits du but) faire
-trouver une règle applicable
-appliquer la règle sur les faits courants (ajout des add, suppression des delete)
-fintantque
+/**
+* Renvoies un tableau d'actions passé en parametre dans lequel on rangera les actions contenues dans le char**
 */
-
-
-
-    /**
-    * Objectif de fonction : donner un char** correspondant au fichier
-    */
 void to_signes(char**fichier, Signe s[FILE_LINES/5]){
     int indice_signe = 0;
     for(int i = 3 ; i < FILE_LINES ; i++){ // on lit a partir de la 3e ligne pour sauter les starts, finish et *** du début
@@ -321,7 +325,9 @@ void print_signes(Signe *s, int signe_size){
 
 
 
-
+/**
+ * verifies si une proposition est contenue dans les propositions d'une Cond
+*/
 int proposition_dans_cond(char *s, Cond test){
     if(s == NULL || test.nb_cond == 0) return 0;
     for(int i = 0 ; i < test.nb_cond ; i++)
@@ -329,6 +335,9 @@ int proposition_dans_cond(char *s, Cond test){
     return 0;
 }
 
+/**
+ * verifies si l'etat satisfait le precond
+*/
 int precond_statisfait(Cond precond, Cond etat){
     if(precond.nb_cond  == 0) return 1;
     if(precond.nb_cond > etat.nb_cond) return 0;
@@ -341,7 +350,9 @@ int precond_statisfait(Cond precond, Cond etat){
     return 1;
 }
 
-
+/**
+ * supprimes les conditions du delete dans l'etat (passé par adresse)
+*/
 void supprimer_cond(Cond delete, Cond *etat){
     if(etat == NULL || delete.nb_cond == 0) return;
     Cond nv_etat;
@@ -358,7 +369,9 @@ void supprimer_cond(Cond delete, Cond *etat){
     copie_cond(etat, nv_etat);
 }
 
-
+/**
+ * ajoute les conditions du add dans l'etat
+*/
 void ajouter_add(Cond add, Cond *etat){
     if(etat == NULL || add.nb_cond == 0) return;
     for(int i=0; i< add.nb_cond; i++){
@@ -369,6 +382,9 @@ void ajouter_add(Cond add, Cond *etat){
     }
 }
 
+/**
+ * fonction de resolution naive (pas d'utilisation du backtraking)
+*/
 void resoudre_naive(Signe act[FILE_LINES/5], Cond start, Cond finish){
     if(act == NULL ) return;
     Cond etat;
@@ -414,6 +430,9 @@ void resoudre_naive(Signe act[FILE_LINES/5], Cond start, Cond finish){
     }
 }
 
+/**
+ * affiches une cond dans le terminal
+*/
 void print_cond(Cond d){
     for(int i=0; i<d.nb_cond; ++i) printf("%s\n", d.cond[i]);
 }
@@ -430,7 +449,6 @@ void print_cond(Cond d){
 
 /**
 Objectif de fonction : à partir des ':' et entre chaque ',' mettre la chaine de char en question dans un tableau : 
-preconds:car needs battery,shop knows problem,shop has money,
 */
 void parse_cond(char* chaine, Cond *c){
     if(c == NULL){ 
@@ -471,87 +489,58 @@ void parse_cond(char* chaine, Cond *c){
     }
 }
 
-void supprimer(char* etat, char* a_supprimer){
-    if(a_supprimer[0] == '\0') return; // -- verifier la condition d'arret, peut etre tester [' ', '\0'] ?
-
-    int i = 0, i_suppr = 0, debut_de_suppression = 0;
-    while(etat[i] != '\0'){
-        if(etat[i] == a_supprimer[i_suppr])
-            i_suppr++;
-        else {
-            i_suppr = 0;
-            debut_de_suppression = i;
-        }
-        i++;
-        if(a_supprimer[i_suppr] == '\0')
-            break;
-    }
-
-    // il faut supprimer entre debut_de_suppression et i dans etat
-    char nouveau_etat[MAX_LINE_LENGTH];
-    for(int k = 0; k < debut_de_suppression; k++){
-        nouveau_etat[k] = etat[k];
-        nouveau_etat[k+1] = '\0';
-    }
-    
-    // printf("step 1 : %s\n", nouveau_etat);
-
-    for(int k = debut_de_suppression ; k < MAX_LINE_LENGTH ;++k)
-        nouveau_etat[k] = etat[k + i - debut_de_suppression]; 
-    // printf("step 2 : %s\n", nouveau_etat);
-    strcpy(etat, nouveau_etat);
-}  
-
-
-
-int rechercher(char*etat, char* a_rechercher){
-    if(a_rechercher[0] == '\0') return 0; // -- verifier la condition d'arret, peut etre tester [' ', '\0'] ?
-
-    int i = 0, i_rech = 0;
-    while(etat[i] != '\0'){
-        if(etat[i] == a_rechercher[i_rech])
-            i_rech++;
-        else 
-            i_rech = 0;
-        i++;
-        if(a_rechercher[i_rech] == '\0')
-            return 1;
-    }
-    return 0;
-}
-
+/**
+ * renvoies 1 si la ligne commence par 'pre', 0 sinon
+*/
 int preconds(char*c){
     if(c == NULL) return 0;
     if(c[0] != '\0' && c[0] == 'p' && c[1] != '\0' && c[1] == 'r' && c[2] != '\0' && c[2] == 'e') return 1;
     return 0;
 }
-
+/**
+ * renvoies 1 si la ligne commence par 'add', 0 sinon
+*/
 int add(char*c){
     if(c == NULL) return 0;
     if(c[0] != '\0' && c[0] == 'a' && c[1] != '\0' && c[1] == 'd' && c[2] != '\0' && c[2] == 'd') return 1;
     return 0;
 }
+/**
+ * renvoies 1 si la ligne commence par 'act', 0 sinon
+*/
 int action(char*c){
     if(c == NULL) return 0;
     if(c[0] != '\0' && c[0] == 'a' && c[1] != '\0' && c[1] == 'c' && c[2] != '\0' && c[2] == 't') return 1;
     return 0;
 }
+/**
+ * renvoies 1 si la ligne commence par 'del', 0 sinon
+*/
 int delete(char*c){
     if(c == NULL) return 0;
     if(c[0] != '\0' && c[0] == 'd' && c[1] != '\0' && c[1] == 'e' && c[2] != '\0' && c[2] == 'l') return 1;
     return 0;
 }
+/**
+ * renvoies 1 si la ligne commence par 'sta', 0 sinon
+*/
 int start(char*c){
     if(c == NULL) return 0;
     if(c[0] != '\0' && c[0] == 's' && c[1] != '\0' && c[1] == 't' && c[2] != '\0' && c[2] == 'a') return 1;
     return 0;
 }
+/**
+ * renvoies 1 si la ligne commence par 'fin', 0 sinon
+*/
 int finish(char*c){
     if(c == NULL) return 0;
     if(c[0] != '\0' && c[0] == 'f' && c[1] != '\0' && c[1] == 'i' && c[2] != '\0' && c[2] == 'n') return 1;
     return 0;
 }
 
+/**
+ * crees un char ** a partir d'un fichier passé en parametre
+*/
 char** lecture(const char* filename) {
     char buffer[MAX_LINE_LENGTH];
     char** lines = NULL;
